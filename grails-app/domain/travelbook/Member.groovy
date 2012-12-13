@@ -7,7 +7,7 @@ class Member {
 	String _gender
 	Date _dateOfBirth
 	
-	static hasMany = [amis : Member, travels: Travel]
+	static hasMany = [friends : Member, travels: Travel]
 	
     static constraints = {
     }
