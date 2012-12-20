@@ -1,5 +1,8 @@
 // locations to search for config files that get merged into the main config;
-// config files can be ConfigSlurper scripts, Java properties files, or classes
+// config files can be ConfigSlurper scripts, Java properties files, or classe
+
+
+s
 // in the classpath in ConfigSlurper format
 
 // grails.config.locations = [ "classpath:${appName}-config.properties",
@@ -89,3 +92,8 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'travelbook.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'travelbook.UserRole'
+grails.plugins.springsecurity.authority.className = 'travelbook.Role'

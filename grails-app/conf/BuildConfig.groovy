@@ -14,7 +14,7 @@ grails.project.dependency.resolution = {
     }
     log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
-
+	 
     repositories {
         inherits true // Whether to inherit repository definitions from plugins
 
@@ -34,7 +34,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.20'
+         runtime 'mysql:mysql-connector-java:5.1.20'
     }
 
     plugins {

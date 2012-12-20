@@ -1,6 +1,6 @@
 package travelbook
 
-class Member {
+class Member extends User {
 	
 	String _nickname
 	String _email
