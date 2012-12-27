@@ -8,12 +8,13 @@ class User {
 
 	String username
 	String password
-	boolean enabled
-	boolean accountExpired
-	boolean accountLocked
-	boolean passwordExpired
+	boolean enabled = true
+	boolean accountExpired = false
+	boolean accountLocked =false
+	boolean passwordExpired =false
 	
-	String _nickname
+	String _name
+	String _fisrtname
 	String _email
 	String _gender
 	Date _dateOfBirth
@@ -23,12 +24,25 @@ class User {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		//hide some attribute not need to register
+		enabled display: false
+		accountExpired display: false
+		accountLocked display: false
+		passwordExpired display: false
 		
-		_nickname (size: 3..16, blank: false, nullable: false)
+		
+		_fisrtname (size: 3..16, blank: false, nullable: false)
 		_email (email: true, blank: false, unique: true, nullable: false)
-		_gender (inList: ["Male", "Female"], nullable: false)
+		_gender (inList: ["M", "F"], nullable: false)
 	}
 	
+	
+	User(){
+		  enabled = true
+		  accountExpired = false
+		  accountLocked =false
+		  passwordExpired =false	
+	}
 	
 	User(String nickname, String email, String gender, Date dateOfBirth) {
 		_nickname = nickname
