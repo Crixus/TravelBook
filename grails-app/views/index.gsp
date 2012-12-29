@@ -83,6 +83,7 @@ p {
 <body>
 	<a href="#page-body" class="skip"><g:message
 			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
+	<sec:ifNotLoggedIn>
 	<div style="float: left;">
 
 		<g:set var="userInstance" value="${new User()}" />
@@ -98,15 +99,10 @@ p {
 		</g:form>
 
 	</div>
-
+	</sec:ifNotLoggedIn>
+	
 	<div id="page-body" role="main">
 		<div style="float: right;">
-			<sec:ifLoggedIn>
-				<span id="User"> Bonjour <sec:username /><small><g:link
-							controller="logout">Deconnexion</g:link></small>
-				</span>
-			</sec:ifLoggedIn>
-
 			<sec:ifNotLoggedIn>
 				<h1>Se Connecter :</h1>
 				<form method="POST"

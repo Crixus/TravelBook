@@ -2,8 +2,8 @@ package travelbook
 
 class Picture {
 
-	String _path;
-	String _name;
+	String path;
+	String name;
 	
 	static belongsTo = [album: Album]
 	

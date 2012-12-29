@@ -2,8 +2,8 @@ package travelbook
 
 class Travel {
 	
-	String _destination;
-	Date _dateDebut;
+	String destination;
+	Date dateDebut;
 	Date dateFin;
 	
 	static belongsTo = [member : User]

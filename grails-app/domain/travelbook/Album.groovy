@@ -2,10 +2,10 @@ package travelbook
 
 class Album {
 
-	String _name;
-	String _description;
-	Date _dateCreation;
-	Date _dateModification;
+	String name;
+	String description;
+	Date dateCreation;
+	Date dateModification;
 	
 	static belongsTo = [travel : Travel]
 	static hasMany = [pictures: Picture]
