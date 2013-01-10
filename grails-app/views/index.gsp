@@ -85,7 +85,7 @@ p {
 			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
 	<sec:ifNotLoggedIn>
 	<div style="float: left;">
-
+		<h1>S'inscrire :</h1>
 		<g:set var="userInstance" value="${new User()}" />
 		<g:form action="save" controller="user" enctype="multipart/form-data">
 			<fieldset class="form">

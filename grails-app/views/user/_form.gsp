@@ -1,6 +1,12 @@
 <%@ page import="travelbook.User" %>
 
-
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
+	<label for="email">
+		<g:message code="user.email.label" default="Email" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field type="email" name="email" required="" value="${userInstance?.email}"/>
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
 	<label for="username">
@@ -26,18 +32,20 @@
 	<g:textField name="fisrtname" maxlength="16" required="" value="${userInstance?.fisrtname}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
-	<label for="email">
-		<g:message code="user.email.label" default="Email" />
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'name', 'error')} ">
+	<label for="name">
+		<g:message code="user.name.label" default="Lastname" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="email" name="email" required="" value="${userInstance?.email}"/>
+	<g:textField name="name" value="${userInstance?.name}"/>
 </div>
+
+
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'gender', 'error')} ">
 	<label for="gender">
 		<g:message code="user.gender.label" default="Gender" />
-		
+		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="gender" from="${userInstance.constraints.gender.inList}" value="${userInstance?.gender}" valueMessagePrefix="user.gender" noSelection="['': '']"/>
 </div>
@@ -50,23 +58,17 @@
 	<g:datePicker name="dateOfBirth" precision="day"  value="${userInstance?.dateOfBirth}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'friends', 'error')} ">
+<!--   <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'friends', 'error')} ">
 	<label for="friends">
 		<g:message code="user.friends.label" default="Friends" />
 		
 	</label>
 	<g:select name="friends" from="${travelbook.User.list()}" multiple="multiple" optionKey="id" size="5" value="${userInstance?.friends*.id}" class="many-to-many"/>
-</div>
+</div> -->
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'name', 'error')} ">
-	<label for="name">
-		<g:message code="user.name.label" default="Name" />
-		
-	</label>
-	<g:textField name="name" value="${userInstance?.name}"/>
-</div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'travels', 'error')} ">
+
+ <!--  <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'travels', 'error')} ">
 	<label for="travels">
 		<g:message code="user.travels.label" default="Travels" />
 		
@@ -81,5 +83,5 @@
 </li>
 </ul>
 
-</div>
+</div> -->
 
