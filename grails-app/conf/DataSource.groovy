@@ -29,17 +29,17 @@ environments {
 	test {
 		dataSource {
 			dbCreate = "update"
-			url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+			//url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
 			// url = "jdbc:mysql://localhost:3306/travelbook"
-			//url = "jdbc:mysql://sql-3.e-clicking.in:3306/bocoumfr_travelbookBD"
+			url = "jdbc:mysql://sql-3.e-clicking.in:3306/bocoumfr_travelbookBD"
 		}
 	}
 	production {
 		dataSource {
 			dbCreate = "update"
 			//url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-			url = "jdbc:mysql://localhost:3306/travelbook"
-			//			url = "jdbc:mysql://sql-3.e-clicking.in:3306/bocoumfr_travelbookBD"
+			//url = "jdbc:mysql://localhost:3306/travelbook"
+						url = "jdbc:mysql://sql-3.e-clicking.in:3306/bocoumfr_travelbookBD"
 			pooled = true
 			properties {
 				maxActive = -1
