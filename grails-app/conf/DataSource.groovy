@@ -30,7 +30,7 @@ environments {
 		dataSource {
 			username = "travelbook"
 			password = "travelbook!"
-			dbCreate = "create-drop"
+			dbCreate = "update"
 			url = "jdbc:mysql://ec2-174-129-9-255.compute-1.amazonaws.com:3306/TravelBook"
 		}
 	}

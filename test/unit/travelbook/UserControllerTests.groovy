@@ -1,6 +1,6 @@
 package travelbook
 
-
+import java.util.Date;
 
 import org.junit.*
 import grails.test.mixin.*
@@ -12,7 +12,14 @@ class UserControllerTests {
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["username"] = "christobal@gmail.com"
+		params["password"] = "doudoudida"
+		
+		params["name"] = "Frank"
+		params["fisrtname"] = "Talom"
+		params["email"] = 'christobal@gmail.com'
+		params["gender"] = "M"
+		params["dateOfBirth"] = new Date()
     }
 
     void testIndex() {

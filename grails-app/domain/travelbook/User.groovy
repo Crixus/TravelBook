@@ -10,8 +10,8 @@ class User {
 	String password
 	boolean enabled = true
 	boolean accountExpired = false
-	boolean accountLocked =false
-	boolean passwordExpired =false
+	boolean accountLocked = false
+	boolean passwordExpired = false
 	
 	String name
 	String fisrtname
@@ -30,7 +30,6 @@ class User {
 		accountLocked display: false
 		passwordExpired display: false
 		
-		
 		fisrtname (size: 3..16, blank: false, nullable: false)
 		email (email: true, blank: false, unique: true, nullable: false)
 		gender (inList: ["M", "F"], nullable: false)
@@ -40,8 +39,8 @@ class User {
 	User(){
 		  enabled = true
 		  accountExpired = false
-		  accountLocked =false
-		  passwordExpired =false	
+		  accountLocked = false
+		  passwordExpired = false	
 	}
 	
 	User(String fisrtname, String email, String gender, Date dateOfBirth) {
@@ -49,12 +48,12 @@ class User {
 		email = email
 		gender = gender
 		dateOfBirth = dateOfBirth
-		username=email
+		username = email
 		
 		enabled = true
 		accountExpired = false
-		accountLocked =false
-		passwordExpired =false
+		accountLocked = false
+		passwordExpired = false
 	}
 
 	static mapping = {
