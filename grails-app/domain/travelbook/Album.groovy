@@ -11,5 +11,7 @@ class Album {
 	static hasMany = [pictures: Picture]
 	
     static constraints = {
+		name (blank: false, unique: true)
+		description (blank: true, nullable: true)
     }
 }

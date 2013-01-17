@@ -10,5 +10,8 @@ class Travel {
 	static hasMany = [albums: Album]
 	
     static constraints = {
+		destination (blank: false)
+		dateDebut (blank:false)
+		dateFin (blank:false, validator:{val, obj -> val?.after(obj.dateDebut)})
     }
 }
