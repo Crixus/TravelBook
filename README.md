@@ -2,7 +2,7 @@ Projet IVVQ - Groupe : "BLACK TEAM"
 ===================================
 
 - Adama Bocoum (Chef de projet) 
-- Ludovic Campos 
+- Ludovic Campos (PtiLu) 
 - Marouan Chamss 
 - Jeremy Curny 
 - Frank Fotso
