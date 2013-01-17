@@ -36,25 +36,25 @@ class User {
 	}
 	
 	
-	User(){
-		  enabled = true
-		  accountExpired = false
-		  accountLocked = false
-		  passwordExpired = false	
-	}
+//	User(){
+//		  enabled = true
+//		  accountExpired = false
+//		  accountLocked = false
+//		  passwordExpired = false	
+//	}
 	
-	User(String fisrtname, String email, String gender, Date dateOfBirth) {
-		fisrtname = fisrtname
-		email = email
-		gender = gender
-		dateOfBirth = dateOfBirth
-		username = email
-		
-		enabled = true
-		accountExpired = false
-		accountLocked = false
-		passwordExpired = false
-	}
+//	User(String fisrtname, String email, String gender, Date dateOfBirth) {
+//		fisrtname = fisrtname
+//		email = email
+//		gender = gender
+//		dateOfBirth = dateOfBirth
+//		username = email
+//		
+//		enabled = true
+//		accountExpired = false
+//		accountLocked = false
+//		passwordExpired = false
+//	}
 
 	static mapping = {
 		password column: '`password`'

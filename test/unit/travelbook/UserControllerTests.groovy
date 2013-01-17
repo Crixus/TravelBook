@@ -9,154 +9,164 @@ import grails.test.mixin.*
 @Mock(User)
 class UserControllerTests {
 
-    def populateValidParams(params) {
-        assert params != null
-        // TODO: Populate valid properties like...
-        params["username"] = "christobal@gmail.com"
-		params["password"] = "doudoudida"
-		
-		params["name"] = "Frank"
-		params["fisrtname"] = "Talom"
-		params["email"] = 'christobal@gmail.com'
-		params["gender"] = "M"
+	def populateValidParams(params) {
+		assert params != null
+		// TODO: Populate valid properties like...
+		//params = new User(username: "toto", email: "toto@gmail.com",dateOfBirth: new Date(),name:"fosto",fisrtname: "toto", gender: "M", password: "toto!");
+
+		params["username"]="toto@gmail.com"
+		params["email"]= "toto@gmail.com"
 		params["dateOfBirth"] = new Date()
-    }
+		params["name"] ="fosto"
+		params["fisrtname"] = "toto"
+		params["gender"] ="M"
+		params["password"] = "toto!"
 
-    void testIndex() {
-        controller.index()
-        assert "/user/list" == response.redirectedUrl
-    }
+		//        params["username"] = "christobal@gmail.com"
+		//		params["password"] = "doudoudida"
+		//
+		//		params["name"] = "Frank"
+		//		params["fisrtname"] = "Talom"
+		//		params["email"] = 'christobal@gmail.com'
+		//		params["gender"] = "M"
+		//		params["dateOfBirth"] = new Date()
+	}
 
-    void testList() {
+	void testIndex() {
+		controller.index()
+		assert "/user/list" == response.redirectedUrl
+	}
 
-        def model = controller.list()
+	void testList() {
 
-        assert model.userInstanceList.size() == 0
-        assert model.userInstanceTotal == 0
-    }
+		def model = controller.list()
 
-    void testCreate() {
-        def model = controller.create()
+		assert model.userInstanceList.size() == 0
+		assert model.userInstanceTotal == 0
+	}
 
-        assert model.userInstance != null
-    }
+	void testCreate() {
+		def model = controller.create()
 
-    void testSave() {
-        controller.save()
+		assert model.userInstance != null
+	}
 
-        assert model.userInstance != null
-        assert view == '/user/create'
+	void testSave() {
+		controller.save()
 
-        response.reset()
+		assert model.userInstance != null
+		assert view == '/user/create'
 
-        populateValidParams(params)
-        controller.save()
+		response.reset()
 
-        assert response.redirectedUrl == '/user/show/1'
-        assert controller.flash.message != null
-        assert User.count() == 1
-    }
+		populateValidParams(params)
+		controller.save()
 
-    void testShow() {
-        controller.show()
+		assert response.redirectedUrl == '/user/show/1'
+		assert controller.flash.message != null
+		assert User.count() == 1
+	}
 
-        assert flash.message != null
-        assert response.redirectedUrl == '/user/list'
+	void testShow() {
+		controller.show()
 
-        populateValidParams(params)
-        def user = new User(params)
+		assert flash.message != null
+		assert response.redirectedUrl == '/user/list'
 
-        assert user.save() != null
+		populateValidParams(params)
+		def user = new User(params)
 
-        params.id = user.id
+		assert user.save() != null
 
-        def model = controller.show()
+		params.id = user.id
 
-        assert model.userInstance == user
-    }
+		def model = controller.show()
 
-    void testEdit() {
-        controller.edit()
+		assert model.userInstance == user
+	}
 
-        assert flash.message != null
-        assert response.redirectedUrl == '/user/list'
+	void testEdit() {
+		controller.edit()
 
-        populateValidParams(params)
-        def user = new User(params)
+		assert flash.message != null
+		assert response.redirectedUrl == '/user/list'
 
-        assert user.save() != null
+		populateValidParams(params)
+		def user = new User(params)
 
-        params.id = user.id
+		assert user.save() != null
 
-        def model = controller.edit()
+		params.id = user.id
 
-        assert model.userInstance == user
-    }
+		def model = controller.edit()
 
-    void testUpdate() {
-        controller.update()
+		assert model.userInstance == user
+	}
 
-        assert flash.message != null
-        assert response.redirectedUrl == '/user/list'
+	void testUpdate() {
+		controller.update()
 
-        response.reset()
+		assert flash.message != null
+		assert response.redirectedUrl == '/user/list'
 
-        populateValidParams(params)
-        def user = new User(params)
+		response.reset()
 
-        assert user.save() != null
+		populateValidParams(params)
+		def user = new User(params)
 
-        // test invalid parameters in update
-        params.id = user.id
-        //TODO: add invalid values to params object
+		assert user.save() != null
 
-        controller.update()
+		// test invalid parameters in update
+		params.id = user.id
+		//TODO: add invalid values to params object
 
-        assert view == "/user/edit"
-        assert model.userInstance != null
+		controller.update()
 
-        user.clearErrors()
+		assert view == "/user/edit"
+		assert model.userInstance != null
 
-        populateValidParams(params)
-        controller.update()
+		user.clearErrors()
 
-        assert response.redirectedUrl == "/user/show/$user.id"
-        assert flash.message != null
+		populateValidParams(params)
+		controller.update()
 
-        //test outdated version number
-        response.reset()
-        user.clearErrors()
+		assert response.redirectedUrl == "/user/show/$user.id"
+		assert flash.message != null
 
-        populateValidParams(params)
-        params.id = user.id
-        params.version = -1
-        controller.update()
+		//test outdated version number
+		response.reset()
+		user.clearErrors()
 
-        assert view == "/user/edit"
-        assert model.userInstance != null
-        assert model.userInstance.errors.getFieldError('version')
-        assert flash.message != null
-    }
+		populateValidParams(params)
+		params.id = user.id
+		params.version = -1
+		controller.update()
 
-    void testDelete() {
-        controller.delete()
-        assert flash.message != null
-        assert response.redirectedUrl == '/user/list'
+		assert view == "/user/edit"
+		assert model.userInstance != null
+		assert model.userInstance.errors.getFieldError('version')
+		assert flash.message != null
+	}
 
-        response.reset()
+	void testDelete() {
+		controller.delete()
+		assert flash.message != null
+		assert response.redirectedUrl == '/user/list'
 
-        populateValidParams(params)
-        def user = new User(params)
+		response.reset()
 
-        assert user.save() != null
-        assert User.count() == 1
+		populateValidParams(params)
+		def user = new User(params)
 
-        params.id = user.id
+		assert user.save() != null
+		assert User.count() == 1
 
-        controller.delete()
+		params.id = user.id
 
-        assert User.count() == 0
-        assert User.get(user.id) == null
-        assert response.redirectedUrl == '/user/list'
-    }
+		controller.delete()
+
+		assert User.count() == 0
+		assert User.get(user.id) == null
+		assert response.redirectedUrl == '/user/list'
+	}
 }
