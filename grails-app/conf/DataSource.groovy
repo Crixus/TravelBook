@@ -21,9 +21,9 @@ environments {
 		dataSource {
 			username = "travelbook"
 			password = "travelbook"
-			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+			dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
 			url = "jdbc:mysql://localhost:3306/travelbook"
-			//url = "jdbc:mysql://ec2-174-129-9-255.compute-1.amazonaws.com:3306/TravelBook"
+//			url = "jdbc:mysql://ec2-174-129-9-255.compute-1.amazonaws.com:3306/TravelBook"
 		}
 	}
 	test {
@@ -31,8 +31,8 @@ environments {
 			username = "travelbook"
 			password = "travelbook!"
 			dbCreate = "create-drop"
-			url = "jdbc:mysql://localhost:3306/travelbook"
-			//url = "jdbc:mysql://ec2-174-129-9-255.compute-1.amazonaws.com:3306/TravelBook"
+//			url = "jdbc:mysql://localhost:3306/travelbook"
+			url = "jdbc:mysql://ec2-174-129-9-255.compute-1.amazonaws.com:3306/TravelBook"
 		}
 	}
 	production {
