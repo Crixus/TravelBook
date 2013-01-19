@@ -77,11 +77,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.fisrtname}">
+				<g:if test="${userInstance?.lastName}">
 				<li class="fieldcontain">
-					<span id="fisrtname-label" class="property-label"><g:message code="user.fisrtname.label" default="Fisrtname" /></span>
+					<span id="lastName-label" class="property-label"><g:message code="user.lastName.label" default="Last Name" /></span>
 					
-						<span class="property-value" aria-labelledby="fisrtname-label"><g:fieldValue bean="${userInstance}" field="fisrtname"/></span>
+						<span class="property-value" aria-labelledby="lastName-label"><g:fieldValue bean="${userInstance}" field="lastName"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.firstName}">
+				<li class="fieldcontain">
+					<span id="firstName-label" class="property-label"><g:message code="user.firstName.label" default="First Name" /></span>
+					
+						<span class="property-value" aria-labelledby="firstName-label"><g:fieldValue bean="${userInstance}" field="firstName"/></span>
 					
 				</li>
 				</g:if>
@@ -120,15 +129,6 @@
 						<g:each in="${userInstance.friends}" var="f">
 						<span class="property-value" aria-labelledby="friends-label"><g:link controller="user" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${userInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="user.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${userInstance}" field="name"/></span>
 					
 				</li>
 				</g:if>

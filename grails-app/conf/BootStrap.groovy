@@ -13,11 +13,6 @@ class BootStrap {
 				fisrtname: "toto",
 				gender: "M",
 				password: "toto!");
-
-		toto.save(flush: true)
-		System.out.println("toto"+toto.toString())
-		User test = User.findByEmail("toto@gmail.com")
-		System.out.println(test.toString())
 	}
 	def destroy = {
 	}

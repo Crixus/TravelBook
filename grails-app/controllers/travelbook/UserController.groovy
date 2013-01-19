@@ -3,7 +3,7 @@ package travelbook
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
-	def springSecurityService
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
