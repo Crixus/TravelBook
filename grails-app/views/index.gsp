@@ -78,22 +78,22 @@
 				<div id="connexion">			
 					<h1>Se Connecter :</h1>
 					<form method="POST"	action="${resource(file: 'j_spring_security_check')}">
-						<table style="text-align: right;">
-							<tr>
-								<td>Username :</td>
-								<td><g:textField name="j_username" /></td>
-							</tr>
-							<tr>
-								<td>Password :</td>
-								<td><g:passwordField name="j_password" /></td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align: right;">
-									<%-- <input type='hidden' name='spring-security-redirect' value='${params['spring-security-redirect']}'/> --%>
-									<g:submitButton name="login" value="Login" />
-								</td>
-							</tr>
-						</table>
+						<div class="fieldcontain required">
+							<label for="j_username">
+								Username : <span class="required-indicator">*</span>
+							</label>
+							<g:textField name="j_username" />
+						</div>
+						<div class="fieldcontain required">
+							<label for="j_password">
+								Password : <span class="required-indicator">*</span>
+							</label>
+							<g:passwordField name="j_password" />
+						</div>
+						<div class="fieldcontain">
+							<%-- <input type='hidden' name='spring-security-redirect' value='${params['spring-security-redirect']}'/> --%>
+							<g:submitButton name="login" value="Login" />
+						</div>
 					</form>
 				</div>
 			</sec:ifNotLoggedIn>
