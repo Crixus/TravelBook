@@ -37,14 +37,15 @@ html * {
 }
 
 body {
-	background: #370470;
+	background-color: white;
 	color: #00AF64;
+	
 	margin: 0 auto;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
+	-moz-box-shadow: 0 0 0.3em #255b17;
 	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	box-shadow: 0 0 0.3em #255b17;
 }
 
 #grailsLogo {
@@ -204,14 +205,7 @@ img {
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */
 
-fieldset,
-.property-list {
-	margin: 0.6em 1.25em 0 1.25em;
-	padding: 0.3em 1.8em 1.25em;
-	position: relative;
-	zoom: 1;
-	border: none;
-}
+form
 
 .property-list .fieldcontain {
 	list-style: none;
@@ -220,40 +214,25 @@ fieldset,
 }
 
 .fieldcontain {
-	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .fieldcontain label,
 .fieldcontain .property-label {
 	color: #00af64;
-	text-align: right;
-	width: 25%;
-}
-
-.fieldcontain .property-label {
 	float: left;
-}
-
-.fieldcontain .property-value {
 	display: block;
-	margin-left: 27%;
 }
 
-label {
-	cursor: pointer;
-	display: inline-block;
-	margin: 0 0.25em 0 0;
+label, input:not([type="submit"]), textarea {
+	width: 100%;
+	text-align: left;
 }
 
 input, select, textarea {
 	background-color: #fcfcfc;
 	border: 1px solid #cccccc;
 	font-size: 1em;
-	padding: 0.2em 0.4em;
-}
-
-select {
-	padding: 0.2em 0.2em 0.2em 0;
 }
 
 select[multiple] {
@@ -261,7 +240,6 @@ select[multiple] {
 }
 
 textarea {
-	width: 250px;
 	height: 150px;
 	overflow: auto; /* IE always renders vertical scrollbar without this */
 	vertical-align: top;
@@ -277,9 +255,9 @@ input:focus, select:focus, textarea:focus {
 	background-color: #ffffff;
 	border: 1px solid #eeeeee;
 	outline: 0;
-	   -moz-box-shadow: 0 0 0.5em #ffffff;
+	-moz-box-shadow: 0 0 0.5em #ffffff;
 	-webkit-box-shadow: 0 0 0.5em #ffffff;
-	        box-shadow: 0 0 0.5em #ffffff;
+	box-shadow: 0 0 0.5em #ffffff;
 }
 
 .required-indicator {
@@ -593,4 +571,17 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+
+div#inscription, div#connexion {
+	width: 40%;
+	margin: 10px;
+}
+
+div#inscription {
+	float: left;
+}
+
+div#connexion {
+	float: right;
 }
