@@ -5,14 +5,21 @@ import travelbook.User
 class BootStrap {
 
 	def init = { servletContext ->
-		User toto = new User(
-				username: "toto@gmail.com",
-				email: "toto@gmail.com",
-				dateOfBirth: new Date(),
-				name:"fosto",
-				fisrtname: "toto",
+		User defaut = new User(
+				username: "default@travelbook.com",
+				email: "default@travelbook.com",
+				dateOfBirth: new Date().previous(),
+				lastName:"Fotso",
+				firstName: "Christobal",
 				gender: "M",
-				password: "toto!");
+				password: "password")
+		if (!defaut.save(flush: true)) {
+			defaut.errors.each {
+				println it
+			}
+		}
+		
+		
 	}
 	def destroy = {
 	}
