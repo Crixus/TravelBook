@@ -41,11 +41,16 @@
 
 
 	<g:layoutBody />
+	
 	<div class="footer" role="contentinfo"></div>
 	<div id="spinner" class="spinner" style="display: none;">
 		<g:message code="spinner.alt" default="Loading&hellip;" />
 	</div>
 	<g:javascript library="application" />
 	<r:layoutResources />
+	<div id="footer">
+<div id="footer">
+<center> <p>Copyright © 2012 TravelBook - Adama Bocoum, Fotso Frank, jeremy curny, Ludovic Campos, Maroun Chams</p> </center>
+</div>
 </body>
 </html>
