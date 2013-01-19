@@ -82,13 +82,13 @@
 							<label for="j_username">
 								Username : <span class="required-indicator">*</span>
 							</label>
-							<g:textField name="j_username" />
+							<g:textField required="" name="j_username" />
 						</div>
 						<div class="fieldcontain required">
 							<label for="j_password">
 								Password : <span class="required-indicator">*</span>
 							</label>
-							<g:passwordField name="j_password" />
+							<g:passwordField required="" name="j_password" />
 						</div>
 						<div class="fieldcontain">
 							<%-- <input type='hidden' name='spring-security-redirect' value='${params['spring-security-redirect']}'/> --%>
