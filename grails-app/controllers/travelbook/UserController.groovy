@@ -30,6 +30,27 @@ class UserController {
         redirect(action: "show", id: userInstance.id)
     }
 
+	
+	def signin() {
+		User userInstance = new User()
+		userInstance.lastName= params["lastName"];
+		userInstance.firstName =params["firstName"];
+		userInstance.gender =params["gender"];
+		userInstance. email =params["email"];
+		userInstance.dateOfBirth = params["dateOfBirth"];
+		userInstance.friends= null;
+		userInstance.travels = null ;
+		userInstance.username = params["username"]
+		
+		if (!userInstance.save(flush: true)) {
+			render(view: "create", model: [userInstance: userInstance])
+			return
+		}
+
+		flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+		redirect(action: "show", id: userInstance.id)
+	}
+
     def show(Long id) {
         def userInstance = User.get(id)
         if (!userInstance) {
