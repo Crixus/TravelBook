@@ -10,7 +10,7 @@ import org.junit.*
  */
 @TestFor(Picture)
 class PictureTests {
-		void testConstraint(){
+	/*	void testConstraint(){
 			
 			def today = new Date()
 			def tomorrow = today.next()
@@ -35,5 +35,5 @@ class PictureTests {
 		
     void testSomething() {
        //fail "Implement me"
-    }
+    }*/
 }
