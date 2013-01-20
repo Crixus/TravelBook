@@ -24,3 +24,31 @@
 				<thead>
 					<tr>
 					
+						<g:sortableColumn property="image" title="${message(code: 'picture.image.label', default: 'Image')}" />
+					
+						<g:sortableColumn property="name" title="${message(code: 'picture.name.label', default: 'Name')}" />
+					
+						<th><g:message code="picture.album.label" default="Album" /></th>
+					
+					</tr>
+				</thead>
+				<tbody>
+				<g:each in="${pictureInstanceList}" status="i" var="pictureInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${pictureInstance.id}">${fieldValue(bean: pictureInstance, field: "image")}</g:link></td>
+					
+						<td>${fieldValue(bean: pictureInstance, field: "name")}</td>
+					
+						<td>${fieldValue(bean: pictureInstance, field: "album")}</td>
+					
+					</tr>
+				</g:each>
+				</tbody>
+			</table>
+			<div class="pagination">
+				<g:paginate total="${pictureInstanceTotal}" />
+			</div>
+		</div>
+	</body>
+</html>
