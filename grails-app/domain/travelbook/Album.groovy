@@ -7,6 +7,8 @@ class Album {
 	Date dateCreation;
 	Date dateModification;
 	
+	Travel travel
+	
 	static belongsTo = [travel : Travel]
 	static hasMany = [pictures: Picture]
 	
