@@ -5,6 +5,8 @@ class Picture {
 	String path;
 	String name;
 	
+	Album album
+	
 	static belongsTo = [album: Album]
 	
     static constraints = {

@@ -35,6 +35,8 @@ class User {
 		email (email: true, blank: false, unique: true, nullable: false)
 		gender (inList: ["M", "F"], nullable: false)
 		dateOfBirth max: new Date()
+		friends (nullable:true)
+		travels(nullable:true)
 	}
 	
 	
