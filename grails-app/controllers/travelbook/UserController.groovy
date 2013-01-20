@@ -33,14 +33,15 @@ class UserController {
 	
 	def signin() {
 		User userInstance = new User()
-		userInstance.lastName= params["lastName"];
-		userInstance.firstName =params["firstName"];
-		userInstance.gender =params["gender"];
-		userInstance. email =params["email"];
-		userInstance.dateOfBirth = params["dateOfBirth"];
-		userInstance.friends= null;
-		userInstance.travels = null ;
-		userInstance.username = params["username"]
+		userInstance.lastName= params["lastName"]
+		userInstance.firstName =params["firstName"]
+		userInstance.gender =params["gender"]
+		userInstance. email =params["email"]
+		userInstance. password =params["password"]
+		userInstance.dateOfBirth = params["dateOfBirth"]
+		userInstance.friends= null
+		userInstance.travels = null 
+		userInstance.username = params["email"]
 		
 		if (!userInstance.save(flush: true)) {
 			render(view: "create", model: [userInstance: userInstance])
