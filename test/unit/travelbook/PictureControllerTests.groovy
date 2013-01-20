@@ -5,7 +5,7 @@ package travelbook
 import org.junit.*
 import grails.test.mixin.*
 
-@TestFor(PictureController)
+//@TestFor(PictureController)
 @Mock(Picture)
 class PictureControllerTests {
 	
