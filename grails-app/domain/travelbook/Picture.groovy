@@ -2,7 +2,7 @@ package travelbook
 
 class Picture {
 
-	String path;
+	Byte[] image;
 	String name;
 	
 	static belongsTo = [album: Album]
