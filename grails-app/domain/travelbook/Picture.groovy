@@ -10,7 +10,7 @@ class Picture {
 	static belongsTo = [album: Album]
 	
     static constraints = {
-		path blank:false
+		image blank:false
 		name blank:false
     }
 }
