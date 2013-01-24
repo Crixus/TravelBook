@@ -10,13 +10,13 @@ import javassist.bytecode.ByteArray
 @Mock(Picture)
 class PictureControllerTests {
 
-//    def populateValidParams(params) {
-//        assert params != null
-//        // TODO: Populate valid properties like...
-//        params["name"] = 'someValidName'
-//		params["image"] = new ByteArray()
-//		 
-//    }
+    def populateValidParams(params) {
+        assert params != null
+        // TODO: Populate valid properties like...
+        params["name"] = 'someValidName'
+		params["image"] = new ByteArray()
+		 
+    }
 //
 //    void testIndex() {
 //        controller.index()
@@ -31,11 +31,11 @@ class PictureControllerTests {
 //        assert model.pictureInstanceTotal == 0
 //    }
 //
-//    void testCreate() {
-//        def model = controller.create()
-//
-//        assert model.pictureInstance != null
-//    }
+    void testCreate() {
+        def model = controller.create()
+
+        assert model.pictureInstance != null
+    }
 //
 //    void testSave() {
 //        controller.save()
