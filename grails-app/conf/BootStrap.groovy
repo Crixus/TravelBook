@@ -17,7 +17,7 @@ class BootStrap {
 				gender: "M",
 				password: "toto!");
 			
-			if (!toto.signin()){
+			if (!toto.save()){
 				log.error "Could not save user!!"
 				log.error "${toto.errors}"
 			  }
@@ -31,7 +31,7 @@ class BootStrap {
 				gender: "M",
 				password: "jerem!");
 			
-			if (!jeremy.signin()){
+			if (!jeremy.save()){
 				log.error "Could not save user!!"
 				log.error "${jeremy.errors}"
 			  }
@@ -45,7 +45,7 @@ class BootStrap {
 				gender: "F",
 				password: "anna!");
 			
-			if (!anna.signin()){
+			if (!anna.save()){
 				log.error "Could not save user!!"
 				log.error "${anna.errors}"
 			}
@@ -59,7 +59,7 @@ class BootStrap {
 				gender: "M",
 				password: "adama!");
 			
-			if (!adama.signin()){
+			if (!adama.save()){
 				log.error "Could not save user!!"
 				log.error "${adama.errors}"
 			  }
