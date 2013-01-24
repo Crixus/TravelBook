@@ -6,7 +6,7 @@ import org.junit.*
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestFor(User)
-class UserTests {
+class UserTests implements IDomainClassDefaultTest{
 	
 	void testConstraint(){
 		
@@ -47,5 +47,33 @@ class UserTests {
 		user = new User(username:"Deuxieme", password:"oulala123", lastName:"Campos", firstName:"Ludovic",email:"lolitude@hotmail.fr",
 						gender:"M", dateOfBirth:yesterday)
 		assert user.validate()
+	}
+
+	@Override
+	public void testInstance() {
+
+		def today = new Date()
+		def yesterday = today.previous()
+		def tomorrow = today.next()
+		
+		def user = new User(username:"Premier", password:"oulala123", lastName:"Campos", firstName:"Ludovic",email:"lolitude7@hotmail.fr",
+									gender:"M", dateOfBirth:yesterday)
+		assert user != null
+		
+		user.setUsername("toto")
+		user.setPassword("toto")
+		user.setLastName("toto")
+		user.setFirstName("toto")
+		user.setEmail("toto@hotmail.fr")
+		user.setGender("F")
+		user.setDateOfBirth(yesterday.previous())
+		
+		assert user.getUsername()   == "toto"
+		assert user.getPassword()   == "toto"
+		assert user.getLastName()   == "toto"
+		assert user.getFirstName()  == "toto"
+		assert user.getEmail()      == "toto@hotmail.fr"
+		assert user.getGender()     == "F"
+		assert user.getDateOfBirth()== yesterday.previous()
 	}
 }

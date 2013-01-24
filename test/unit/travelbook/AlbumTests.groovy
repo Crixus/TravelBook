@@ -9,7 +9,7 @@ import org.junit.*
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestFor(Album)
-class AlbumTests {
+class AlbumTests implements IDomainClassDefaultTest {
 	
 	void testConstraint(){
 		
@@ -37,8 +37,28 @@ class AlbumTests {
 		album = new Album(name:"deuxieme",dateCreation:today, dateModification:today, travel:travel)
 		assert album.validate()
 	}
-	
-    void testSomething() {
-       //fail "Implement me"
-    }
+
+	public void testInstance() {
+		
+		def today = new Date()
+		def tomorrow = today.next()
+		def yesterday = today.previous()
+		
+		def user = new User(username:"Deuxieme", password:"oulala123", lastName:"Campos", firstName:"Ludovic",email:"lolitude@hotmail.fr",
+			gender:"M", dateOfBirth:yesterday)
+		def travel = new Travel(destination:"Rio", dateDebut:today, dateFin:tomorrow, member:user)
+		def album = new Album(name:"premier", description:"ceci_est_une_description", dateCreation:today, dateModification:today, travel:travel)
+		
+		assert album != null
+		
+		album.setName("toto")
+		album.setDescription("toto")
+		album.setDateCreation(today)
+		album.setDateModification(today)
+		
+		assert album.getName()             == "toto"
+		assert album.getDescription()      == "toto"
+		assert album.getDateCreation()     == today
+		assert album.getDateModification() == today
+	}
 }
