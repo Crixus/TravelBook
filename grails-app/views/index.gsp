@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main" />
-		<title>Welcome to Grails</title>
+		<title>TravelBook</title>
 	</head>
 	<body>
 		<div id="page" role="main">
@@ -19,7 +19,7 @@
 				</div>
 			</sec:ifNotLoggedIn>
 			<sec:ifLoggedIn>
-				<g:render template="home" />
+				<g:render template="/home" />
 			</sec:ifLoggedIn>
 		</div>
 	</body>
