@@ -32,7 +32,7 @@ environments {
 			password = "travelbook!"
 			dbCreate = "create-drop"
 			//url = "jdbc:mysql://localhost:3306/travelbook"
-			url = "jdbc:mysql://kal747.no-ip.org:3306/travelbook"
+			url = "jdbc:mysql://localhost:3306/travelbook"
 		}
 	}
 	production {
