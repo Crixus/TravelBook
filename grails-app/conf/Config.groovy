@@ -110,3 +110,6 @@ grails.plugins.springsecurity.interceptUrlMap = [
 	'/admin/**':                            ['ROLE_ADMIN', 'IS_AUTHENTICATED_FULLY'],
 	'/**':                                  ['IS_AUTHENTICATED_FULLY']
 	]
+
+// grails maven
+grails.project.mavenCache = "target/m2cache"
