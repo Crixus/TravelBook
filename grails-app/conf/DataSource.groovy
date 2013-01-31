@@ -22,8 +22,8 @@ environments {
 			username = "travelbook"
 			password = "travelbook"
 			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-			url = "jdbc:mysql://localhost:3306/travelbook"
-//			url = "jdbc:mysql://ec2-174-129-9-255.compute-1.amazonaws.com:3306/TravelBook"
+//			url = "jdbc:mysql://localhost:3306/travelbook"
+			url = "jdbc:mysql://kal747.no-ip.org:3306/travelbook"
 		}
 	}
 	test {
@@ -31,8 +31,8 @@ environments {
 			username = "travelbook"
 			password = "travelbook!"
 			dbCreate = "create-drop"
-			//url = "jdbc:mysql://localhost:3306/travelbook"
-			url = "jdbc:mysql://sql-3.e-clicking.in:3306/bocoumfr_travelbookBD"
+			url = "jdbc:mysql://localhost:3306/travelbook"
+//			url = "jdbc:mysql://sql-3.e-clicking.in:3306/bocoumfr_travelbookBD"
 		}
 	}
 	production {
