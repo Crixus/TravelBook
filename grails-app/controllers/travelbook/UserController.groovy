@@ -3,7 +3,8 @@ package travelbook
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
-
+ 
+	 def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -30,6 +31,12 @@ class UserController {
         redirect(action: "show", id: userInstance.id)
     }
 
+
+	def getcurrentuser(String email) {
+		//springSecurityService.currentUser
+		def userInstance=  springSecurityService.currentUser
+		[userInstance: userInstance]
+	}
 	
 	def signin() {
 		User userInstance = new User()

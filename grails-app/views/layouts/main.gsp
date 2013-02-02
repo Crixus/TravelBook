@@ -26,7 +26,7 @@
 	<div style="float: right;">
 		<sec:ifLoggedIn>
 			<span id="User">
-				Bonjour <sec:username /> <small><g:link controller="logout">Deconnexion</g:link></small>
+				Bonjour <sec username /> <small><g:link controller="logout">Deconnexion</g:link></small>
 			</span>
 		</sec:ifLoggedIn>
 	</div>
