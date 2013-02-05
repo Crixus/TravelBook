@@ -14,13 +14,13 @@ class UserControllerTests {
 		// TODO: Populate valid properties like...
 		//params = new User(username: "toto", email: "toto@gmail.com",dateOfBirth: new Date(),name:"fosto",fisrtname: "toto", gender: "M", password: "toto!");
 
-		params["username"]="toto@gmail.com"
-		params["email"]= "toto@gmail.com"
+		params["username"]="cedric@gmail.com"
+		params["email"]= "cedric@gmail.com"
 		params["dateOfBirth"] = new Date()
-		params["name"] ="fosto"
-		params["fisrtname"] = "toto"
+		params["name"] ="cedric"
+		params["fisrtname"] = "cedric"
 		params["gender"] ="M"
-		params["password"] = "toto!"
+		params["password"] = "cedric!"
 
 		//        params["username"] = "christobal@gmail.com"
 		//		params["password"] = "doudoudida"
