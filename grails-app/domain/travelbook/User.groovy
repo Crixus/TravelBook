@@ -17,8 +17,8 @@ class User {
 	
 	boolean enabled = true
 	boolean accountExpired = false
-	boolean accountLocked =false
-	boolean passwordExpired =false
+	boolean accountLocked = false
+	boolean passwordExpired = false
 	
 	static hasMany = [friends : User, travels: Travel]
 
@@ -39,34 +39,11 @@ class User {
 		friends (nullable:true)
 		travels(nullable:true)
 	}
-	
-	
-	User(){
-		  enabled = true
-		  accountExpired = false
-		  accountLocked =false
-		  passwordExpired =false	
-	}
-	
-	User(String lastName, String firstName, String email, String gender, Date dateOfBirth) {
-		lastName = lastName
-		firstName = firstName
-		email = email
-		gender = gender
-		dateOfBirth = dateOfBirth
-		username=email
-		
-		enabled = true
-		accountExpired = false
-		accountLocked =false
-		passwordExpired =false
-	}
 
 	static mapping = {
 		password column: '`password`'
 	}
 
-	
 	Set<Role> getAuthorities() {
 		UserRole.findAllByUser(this).collect { it.role } as Set
 	}
