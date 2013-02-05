@@ -10,7 +10,7 @@ import grails.test.mixin.*
 class UserControllerTests {
 
 	def populateValidParams(params) {
-		assert params != null
+		assertNotNull(params)
 
 		params["username"]= "cedric@gmail.com"
 		params["password"] = "cedric!"
@@ -23,21 +23,26 @@ class UserControllerTests {
 
 	void testIndex() {
 		controller.index()
-		assert "/user/list" == response.redirectedUrl
+		assertEquals("/user/list", response.redirectedUrl)
 	}
 
 	
 	void testList() {
-		def model = controller.list()
-
-		assert model.userInstanceList.size() == 0
-		assert model.userInstanceTotal == 0
+		def model
+		model = controller.list()
+		assertEquals(model.userInstanceList.size(), 0)
+		assertEquals(model.userInstanceTotal, 0)
+		
+		params.max = 1000
+		model = controller.list()
+		assertEquals(model.userInstanceList.size(), 0)
+		assertEquals(model.userInstanceTotal, 0)
 	}
 
 	void testCreate() {
 		def model = controller.create()
 
-		assert model.userInstance != null
+		assertNotNull(model.userInstance)
 	}
 
 	
@@ -47,8 +52,8 @@ class UserControllerTests {
 		// Test invalid
 		controller.save()
 
-		assert model.userInstance != null
-		assert view == '/user/create'
+		assertNotNull(model.userInstance)
+		assertEquals(view, '/user/create')
 
 		response.reset()
 
@@ -56,69 +61,69 @@ class UserControllerTests {
 		populateValidParams(params)
 		controller.save()
 
-		assert response.redirectedUrl == '/user/show/1'
-		assert controller.flash.message != null
-		assert User.count() == 1
+		assertEquals(response.redirectedUrl, '/user/show/1')
+		assertNotNull(controller.flash.message)
+		assertEquals(User.count(), 1)
 	}
 	
 	void testShow() {
 		controller.show()
 
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assertNotNull(flash.message)
+		assertEquals(response.redirectedUrl, '/user/list')
 
 		populateValidParams(params)
 		def user = new User(params)
 
-		assert user.save() != null
+		assertNotNull(user.save())
 
 		params.id = user.id
 
 		def model = controller.show()
 
-		assert model.userInstance == user
+		assertEquals(model.userInstance, user)
 	}
 
 	void testEdit() {
 		controller.edit()
 
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assertNotNull(flash.message)
+		assertEquals(response.redirectedUrl, '/user/list')
 
 		populateValidParams(params)
 		def user = new User(params)
 
-		assert user.save() != null
+		assertNotNull(user.save())
 
 		params.id = user.id
 
 		def model = controller.edit()
 
-		assert model.userInstance == user
+		assertEquals(model.userInstance, user)
 	}
 
-	/*
 	void testUpdate() {
 		controller.update()
 
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assertNotNull(flash.message)
+		assertEquals(response.redirectedUrl, '/user/list')
 
 		response.reset()
 
 		populateValidParams(params)
 		def user = new User(params)
 
-		assert user.save() != null
+		assertNotNull(user.save())
 
 		// test invalid parameters in update
 		params.id = user.id
-		//TODO: add invalid values to params object
+		
+		params.email = "invalid-mail.com"
 
 		controller.update()
 
-		assert view == "/user/edit"
-		assert model.userInstance != null
+		assertEquals(view, "/user/edit")
+		assertNotNull(model.userInstance)
 
 		user.clearErrors()
 
@@ -126,7 +131,7 @@ class UserControllerTests {
 		controller.update()
 
 		assert response.redirectedUrl == "/user/show/$user.id"
-		assert flash.message != null
+		assertNotNull(flash.message)
 
 		//test outdated version number
 		response.reset()
@@ -138,30 +143,30 @@ class UserControllerTests {
 		controller.update()
 
 		assert view == "/user/edit"
-		assert model.userInstance != null
+		assertNotNull(model.userInstance)
 		assert model.userInstance.errors.getFieldError('version')
-		assert flash.message != null
-	}*/
+		assertNotNull(flash.message)
+	}
 
 	void testDelete() {
 		controller.delete()
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assertNotNull(flash.message)
+		assertEquals(response.redirectedUrl, '/user/list')
 
 		response.reset()
 
 		populateValidParams(params)
 		def user = new User(params)
 
-		assert user.save() != null
-		assert User.count() == 1
+		assertNotNull(user.save())
+		assertEquals(User.count(), 1)
 
 		params.id = user.id
 
 		controller.delete()
 
-		assert User.count() == 0
-		assert User.get(user.id) == null
-		assert response.redirectedUrl == '/user/list'
+		assertEquals(User.count(), 0)
+		assertNull(User.get(user.id))
+		assertEquals(response.redirectedUrl, '/user/list')
 	}
 }
