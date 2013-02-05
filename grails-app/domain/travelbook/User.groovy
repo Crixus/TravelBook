@@ -1,10 +1,11 @@
 package travelbook
 
-import java.util.Date;
+import java.util.Date
+import grails.plugins.springsecurity.SpringSecurityService
 
 class User {
 
-	transient springSecurityService
+	def springSecurityService
 
 	String username
 	String password
@@ -21,6 +22,8 @@ class User {
 	boolean passwordExpired = false
 	
 	static hasMany = [friends : User, travels: Travel]
+	
+	static transients = ["springSecurityService"]
 
 	static constraints = {
 		username blank: false, unique: true
@@ -48,7 +51,6 @@ class User {
 		UserRole.findAllByUser(this).collect { it.role } as Set
 	}
 
-	/* "cannot invoke method encodePassword() on null object" donc commentaire
 	def beforeInsert() {
 		encodePassword()
 	}
@@ -57,7 +59,7 @@ class User {
 		if (isDirty('password')) {
 			encodePassword()
 		}
-	}*/
+	}
 
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)

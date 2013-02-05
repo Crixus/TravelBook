@@ -6,8 +6,6 @@ class Travel {
 	Date dateDebut;
 	Date dateFin;
 	
-	User member
-	
 	static belongsTo = [member : User]
 	static hasMany = [albums: Album]
 	
