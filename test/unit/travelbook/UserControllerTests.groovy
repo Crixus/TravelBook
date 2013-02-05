@@ -58,13 +58,10 @@ class UserControllerTests {
 		// Test invalid
 		controller.save()
 
-<<<<<<< .mine
-		assert model.userInstance != null
-		assert view == '/user/test/create'
-=======
+ 
 		assertNotNull(model.userInstance)
 		assertEquals(view, '/user/create')
->>>>>>> .theirs
+ 
 
 		response.reset()
 
@@ -72,27 +69,20 @@ class UserControllerTests {
 		populateValidParams(params)
 		controller.save()
 
-<<<<<<< .mine
-		assert response.redirectedUrl == '/user/test/show/1'
-		assert controller.flash.message != null
-		assert User.count() == 1
-=======
+ 
 		assertEquals(response.redirectedUrl, '/user/show/1')
 		assertNotNull(controller.flash.message)
 		assertEquals(User.count(), 1)
->>>>>>> .theirs
+ 
 	}
 	
 	void testShow() {
 		controller.show()
 
-<<<<<<< .mine
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/test/list'
-=======
+ 
 		assertNotNull(flash.message)
 		assertEquals(response.redirectedUrl, '/user/list')
->>>>>>> .theirs
+ 
 
 		populateValidParams(params)
 		def user = new User(params)
@@ -109,13 +99,10 @@ class UserControllerTests {
 	void testEdit() {
 		controller.edit()
 
-<<<<<<< .mine
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/test/list'
-=======
+ 
 		assertNotNull(flash.message)
 		assertEquals(response.redirectedUrl, '/user/list')
->>>>>>> .theirs
+ 
 
 		populateValidParams(params)
 		def user = new User(params)
@@ -132,13 +119,10 @@ class UserControllerTests {
 	void testUpdate() {
 		controller.update()
 
-<<<<<<< .mine
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/test/list'
-=======
+ 
 		assertNotNull(flash.message)
 		assertEquals(response.redirectedUrl, '/user/list')
->>>>>>> .theirs
+ 
 
 		response.reset()
 
@@ -154,13 +138,10 @@ class UserControllerTests {
 
 		controller.update()
 
-<<<<<<< .mine
-		assert view == "/user/test/edit"
-		assert model.userInstance != null
-=======
+ 
 		assertEquals(view, "/user/edit")
 		assertNotNull(model.userInstance)
->>>>>>> .theirs
+ 
 
 		user.clearErrors()
 
@@ -187,13 +168,9 @@ class UserControllerTests {
 
 	void testDelete() {
 		controller.delete()
-<<<<<<< .mine
-		assert flash.message != null
-		assert response.redirectedUrl == '/user/test/list'
-=======
+ 
 		assertNotNull(flash.message)
 		assertEquals(response.redirectedUrl, '/user/list')
->>>>>>> .theirs
 
 		response.reset()
 
@@ -206,15 +183,10 @@ class UserControllerTests {
 		params.id = user.id
 
 		controller.delete()
-
-<<<<<<< .mine
-		assert User.count() == 0
-		assert User.get(user.id) == null
-		assert response.redirectedUrl == '/user/test/list'
-=======
+ 
 		assertEquals(User.count(), 0)
 		assertNull(User.get(user.id))
 		assertEquals(response.redirectedUrl, '/user/list')
->>>>>>> .theirs
+ 
 	}
 }
