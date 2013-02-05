@@ -8,16 +8,17 @@ class User {
 
 	String username
 	String password
-	boolean enabled = true
-	boolean accountExpired = false
-	boolean accountLocked =false
-	boolean passwordExpired =false
 	
 	String lastName
 	String firstName
 	String email
 	String gender
 	Date dateOfBirth
+	
+	boolean enabled = true
+	boolean accountExpired = false
+	boolean accountLocked =false
+	boolean passwordExpired =false
 	
 	static hasMany = [friends : User, travels: Travel]
 
@@ -70,6 +71,7 @@ class User {
 		UserRole.findAllByUser(this).collect { it.role } as Set
 	}
 
+	/* "cannot invoke method encodePassword() on null object" donc commentaire
 	def beforeInsert() {
 		encodePassword()
 	}
@@ -78,7 +80,7 @@ class User {
 		if (isDirty('password')) {
 			encodePassword()
 		}
-	}
+	}*/
 
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
