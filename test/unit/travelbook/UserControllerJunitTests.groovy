@@ -7,34 +7,29 @@ import grails.test.mixin.*
 
 @TestFor(UserController)
 @Mock(User)
-class UserControllerTests {
+class UserControllerJunitTests {
 
+	def springSecurityService
+	
 	def populateValidParams(params) {
 		assert params != null
 		// TODO: Populate valid properties like...
 		//params = new User(username: "toto", email: "toto@gmail.com",dateOfBirth: new Date(),name:"fosto",fisrtname: "toto", gender: "M", password: "toto!");
 
-		params["username"]="toto@gmail.com"
-		params["email"]= "toto@gmail.com"
-		params["dateOfBirth"] = new Date()
-		params["name"] ="fosto"
-		params["fisrtname"] = "toto"
+		
+		params["username"]="bocoum@gmail.com"
+		params["email"]= "abocoum@hotmail.fr"
+		params["dateOfBirth"] = new Date()-120
+		params["lastName"] ="BOCOUM"
+		params["fisrtname"] = "Adama"
 		params["gender"] ="M"
 		params["password"] = "toto!"
 
-		//        params["username"] = "christobal@gmail.com"
-		//		params["password"] = "doudoudida"
-		//
-		//		params["name"] = "Frank"
-		//		params["fisrtname"] = "Talom"
-		//		params["email"] = 'christobal@gmail.com'
-		//		params["gender"] = "M"
-		//		params["dateOfBirth"] = new Date()
 	}
 
 	void testIndex() {
 		controller.index()
-		assert "/user/list" == response.redirectedUrl
+		assert "/user/test/list" == response.redirectedUrl
 	}
 
 	void testList() {
@@ -55,14 +50,14 @@ class UserControllerTests {
 		controller.save()
 
 		assert model.userInstance != null
-		assert view == '/user/create'
+		assert view == '/user/test/create'
 
 		response.reset()
 
 		populateValidParams(params)
 		controller.save()
 
-		assert response.redirectedUrl == '/user/show/1'
+		assert response.redirectedUrl == '/user/test/show/1'
 		assert controller.flash.message != null
 		assert User.count() == 1
 	}
@@ -71,7 +66,7 @@ class UserControllerTests {
 		controller.show()
 
 		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assert response.redirectedUrl == '/user/test/list'
 
 		populateValidParams(params)
 		def user = new User(params)
@@ -89,7 +84,7 @@ class UserControllerTests {
 		controller.edit()
 
 		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assert response.redirectedUrl == '/user/test/list'
 
 		populateValidParams(params)
 		def user = new User(params)
@@ -107,7 +102,7 @@ class UserControllerTests {
 		controller.update()
 
 		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assert response.redirectedUrl == '/user/test/list'
 
 		response.reset()
 
@@ -122,7 +117,7 @@ class UserControllerTests {
 
 		controller.update()
 
-		assert view == "/user/edit"
+		assert view == "/user/test/edit"
 		assert model.userInstance != null
 
 		user.clearErrors()
@@ -130,7 +125,7 @@ class UserControllerTests {
 		populateValidParams(params)
 		controller.update()
 
-		assert response.redirectedUrl == "/user/show/$user.id"
+		assert response.redirectedUrl == "/user/test/show/$user.id"
 		assert flash.message != null
 
 		//test outdated version number
@@ -142,7 +137,7 @@ class UserControllerTests {
 		params.version = -1
 		controller.update()
 
-		assert view == "/user/edit"
+		assert view == "/user/test/edit"
 		assert model.userInstance != null
 		assert model.userInstance.errors.getFieldError('version')
 		assert flash.message != null
@@ -151,7 +146,7 @@ class UserControllerTests {
 	void testDelete() {
 		controller.delete()
 		assert flash.message != null
-		assert response.redirectedUrl == '/user/list'
+		assert response.redirectedUrl == '/user/test/list'
 
 		response.reset()
 
@@ -167,6 +162,6 @@ class UserControllerTests {
 
 		assert User.count() == 0
 		assert User.get(user.id) == null
-		assert response.redirectedUrl == '/user/list'
+		assert response.redirectedUrl == '/user/test/list'
 	}
 }
