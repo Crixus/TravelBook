@@ -4,13 +4,13 @@ import java.util.Date;
 
 import org.junit.*
 import grails.test.mixin.*
-
+import grails.plugins.springsecurity.SpringSecurityService
 @TestFor(UserController)
 @Mock([User])
 class UserControllerTests {
 
-	def springSecurityService
 	
+	 
 	def populateValidParams(params) {
 		assert params != null
 
@@ -21,6 +21,7 @@ class UserControllerTests {
 		params["email"]= "cedric@gmail.com"
 		params["gender"] = "M"
 		params["dateOfBirth"] = new Date("1988/07/17")
+	
 	}
 	
 	def populateValidParamsForsign(params) {
@@ -62,6 +63,27 @@ class UserControllerTests {
 		assert model.userInstance != null
 	}
 
+	void testSignin() {
+		params.flush = true
+		 
+		// Test invalid
+		controller.signin()
+
+ 
+		assert model.userInstance != null
+		assert view == '/user/create'
+
+		response.reset()
+
+		// Test valid
+		populateValidParamsForsign(params)
+		controller.signin()
+
+ 
+		assert response.redirectedUrl == '/user/show/1'
+		assert controller.flash.message != null
+		assert User.count() == 1
+	}
 	
 	void testSave() {
 		params.flush = true
@@ -103,26 +125,10 @@ class UserControllerTests {
 		assert model.userInstance == user
 	}
 
-	void testSignin() {
-		params.flush = true
-		
-		// Test invalid
-		controller.signin()
-
+	void testgetcurrentuser() {
+		def model = controller. getcurrentuser()
  
-		assert model.userInstance != null
-		assert view == '/user/create'
-
-		response.reset()
-
-		// Test valid
-		populateValidParamsForsign(params)
-		controller.signin()
-
- 
-		assert response.redirectedUrl == '/user/show/2'
-		assert controller.flash.message != null
-		assert User.count() == 2
+		assert model.userInstance == null
 	}
 	
 	void testEdit() {
@@ -194,7 +200,7 @@ class UserControllerTests {
 	}
 
 	void testDelete() {
-
+		controller.delete()
 		assert flash.message != null
 		assert response.redirectedUrl == '/user/list'
  

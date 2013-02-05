@@ -1,10 +1,11 @@
 package travelbook
 
+import grails.plugins.springsecurity.SpringSecurityService
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
  
-	 def springSecurityService
+	 def springSecurityService = new SpringSecurityService()
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -32,9 +33,9 @@ class UserController {
     }
 
 
-	def getcurrentuser(String email) {
+	def getcurrentuser() {
 		//springSecurityService.currentUser
-		def userInstance=  springSecurityService.currentUser
+		def userInstance=  springSecurityService.principal
 		[userInstance: userInstance]
 	}
 	
