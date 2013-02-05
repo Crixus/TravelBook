@@ -25,11 +25,8 @@ class UserControllerTests {
 
 	void testIndex() {
 		controller.index()
-<<<<<<< .mine
-		assert "/user/test/list" == response.redirectedUrl
-=======
+ 
 		assertEquals("/user/list", response.redirectedUrl)
->>>>>>> .theirs
 	}
 
 	
@@ -148,7 +145,7 @@ class UserControllerTests {
 		populateValidParams(params)
 		controller.update()
 
-		assert response.redirectedUrl == "/user/test/show/$user.id"
+		assert response.redirectedUrl == "/user/show/$user.id"
 		assertNotNull(flash.message)
 
 		//test outdated version number
@@ -160,7 +157,7 @@ class UserControllerTests {
 		params.version = -1
 		controller.update()
 
-		assert view == "/user/test/edit"
+		assert view == "/user/edit"
 		assertNotNull(model.userInstance)
 		assert model.userInstance.errors.getFieldError('version')
 		assertNotNull(flash.message)
