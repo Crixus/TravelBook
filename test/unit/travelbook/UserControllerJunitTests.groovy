@@ -32,7 +32,7 @@ class UserControllerTests {
 		//		params["dateOfBirth"] = new Date()
 	}
 
-	void testIndex() {
+	/*void testIndex() {
 		controller.index()
 		assert "/user/list" == response.redirectedUrl
 	}
@@ -43,7 +43,7 @@ class UserControllerTests {
 
 		assert model.userInstanceList.size() == 0
 		assert model.userInstanceTotal == 0
-	}
+	}*/
 
 	void testCreate() {
 		def model = controller.create()
@@ -51,7 +51,7 @@ class UserControllerTests {
 		assert model.userInstance != null
 	}
 
-	void testSave() {
+/*	void testSave() {
 		controller.save()
 
 		assert model.userInstance != null
@@ -168,5 +168,5 @@ class UserControllerTests {
 		assert User.count() == 0
 		assert User.get(user.id) == null
 		assert response.redirectedUrl == '/user/list'
-	}
+	}*/
 }
