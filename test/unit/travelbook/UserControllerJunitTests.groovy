@@ -7,7 +7,7 @@ import grails.test.mixin.*
 
 @TestFor(UserController)
 @Mock(User)
-class UserControllerTests {
+class UserControllerJunitTests {
 
 	def populateValidParams(params) {
 		assert params != null
