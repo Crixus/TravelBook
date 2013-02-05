@@ -30,7 +30,7 @@ environments {
 		dataSource {
 			username = "travelbook"
 			password = "travelbook!"
-			dbCreate = "update"
+			dbCreate = "create-drop"
 
 		
 //			url = "jdbc:mysql://localhost:3306/travelbook"
