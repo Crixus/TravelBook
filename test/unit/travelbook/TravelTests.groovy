@@ -31,8 +31,7 @@ class TravelTests implements IDomainClassDefaultTest {
 		assert travel.validate()
 	}
 
-	@Override
-	public void testInstance() {
+	void testInstance() {
 		
 		def today = new Date()
 		def tomorrow = today.next()

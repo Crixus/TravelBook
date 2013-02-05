@@ -6,7 +6,7 @@ import org.junit.*
 import grails.test.mixin.*
 import javassist.bytecode.ByteArray
 
-//@TestFor(PictureController)
+@TestFor(PictureController)
 @Mock(Picture)
 class PictureControllerTests {
 
@@ -18,9 +18,8 @@ class PictureControllerTests {
 		def yesterday = today.previous()
 		byte[] image
 		image = [0,1,0,1,0,1]
-		def user = new User(username:"Deuxieme", password:"oulala123", lastName:"Campos", firstName:"Ludovic",email:"lolitude@hotmail.fr",
-			gender:"M", dateOfBirth:yesterday)		
-		def travel = new Travel(destination:"Rio", dateDebut:today, dateFin:tomorrow, member:user)
+		
+		def travel = new Travel(destination:"Rio", dateDebut:today, dateFin:tomorrow)
 		def album = new Album(name:"deuxieme",dateCreation:today, dateModification:today, travel:travel)
 		
         params["name"] = 'toto'
