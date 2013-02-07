@@ -20,9 +20,7 @@
 				</div>
 			</sec:ifNotLoggedIn>
 			<sec:ifLoggedIn>
-				<g:set var="userInstance" value="${User.findByUsername(sec.loggedInUserInfo(field:'username'))}" />
-				<g:set var="userInstanceFriends" value="${UserController.friends()}" />
-				<g:render template="/home" />
+				<g:render template="/friends" />
 			</sec:ifLoggedIn>
 		</div>
 	</body>
