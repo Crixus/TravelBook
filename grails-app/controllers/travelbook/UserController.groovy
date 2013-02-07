@@ -5,7 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
  
-	 def springSecurityService = new SpringSecurityService()
+	 def springSecurityService  
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -35,9 +35,16 @@ class UserController {
 
 	def getcurrentuser() {
 		//springSecurityService.currentUser
-		def userInstance=  springSecurityService.principal
+		def userInstance=  springSecurityService.currentUser
 		[userInstance: userInstance]
 	}
+	
+	def getFriends() {
+		def userInstance=  springSecurityService.currentUser
+		def userInstanceFriends = userInstance.getFriends() 
+		[userInstanceList: userInstanceFriends ]
+	}
+
 	
 	def signin() {
 		User userInstance = new User()

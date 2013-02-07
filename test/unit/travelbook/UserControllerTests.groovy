@@ -6,7 +6,7 @@ import org.junit.*
 import grails.test.mixin.*
 import grails.plugins.springsecurity.SpringSecurityService
 @TestFor(UserController)
-@Mock([User])
+@Mock([User , SpringSecurityService])
 class UserControllerTests {
 
 	
@@ -221,6 +221,7 @@ class UserControllerTests {
 		assert User.get(user.id) == null
 		assert response.redirectedUrl == '/user/list'
 	}
+	
 	
 
 }

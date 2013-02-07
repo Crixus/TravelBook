@@ -5,7 +5,7 @@ import grails.plugins.springsecurity.SpringSecurityService
 
 class User {
 
-	def springSecurityService
+	transient springSecurityService 
 
 	String username
 	String password
@@ -23,7 +23,7 @@ class User {
 	
 	static hasMany = [friends : User, travels: Travel]
 	
-	static transients = ["springSecurityService"]
+	
 
 	static constraints = {
 		username blank: false, unique: true
@@ -56,12 +56,19 @@ class User {
 	}
 
 	def beforeUpdate() {
-		if (isDirty('password')) {
-			encodePassword()
+		if(springSecurityService ){
+			if (isDirty('password')) {
+				encodePassword()
+			}
 		}
+		
 	}
 
 	protected void encodePassword() {
-		password = springSecurityService.encodePassword(password)
+		if(springSecurityService ){
+			password = springSecurityService.encodePassword(password)
+		}
+		 
+		
 	}
 }
