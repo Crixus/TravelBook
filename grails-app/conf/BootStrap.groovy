@@ -64,9 +64,55 @@ class BootStrap {
 				log.error "${adama.errors}"
 			  }
 			
+			User Matt = new User(
+				username: "Matt@gmail.com",
+				email: "Matt@gmail.com",
+				dateOfBirth: new Date()-240 ,
+				lastName:"Matt",
+				firstName: "Matt",
+				gender: "M",
+				password: "Matt!");
+			
+			if (!Matt.save()){
+				log.error "Could not save user!!"
+				log.error "${Matt.errors}"
+			}
+			
+			User Julie = new User(
+				username: "Julie@gmail.com",
+				email: "Julie@gmail.com",
+				dateOfBirth: new Date()-240 ,
+				lastName:"Julie",
+				firstName: "Julie",
+				gender: "F",
+				password: "Julie!");
+			
+			if (!Julie.save()){
+				log.error "Could not save user!!"
+				log.error "${Julie.errors}"
+			}
+			
+			User Camille = new User(
+				username: "Camille@gmail.com",
+				email: "Camille@gmail.com",
+				dateOfBirth: new Date()-240 ,
+				lastName:"Camille",
+				firstName: "Camille",
+				gender: "F",
+				password: "Camille!");
+			
+			if (!Camille.save()){
+				log.error "Could not save user!!"
+				log.error "${Camille.errors}"
+			}
+			
 			
 		adama.addToFriends(anna)
 		adama.addToFriends(jeremy)
+		adama.addToFriends(toto)
+		adama.addToFriends(Camille)
+		adama.addToFriends(Matt)
+		adama.addToFriends(Julie)
 
 		anna.addToFriends(toto)	
 		
