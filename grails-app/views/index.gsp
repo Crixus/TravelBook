@@ -1,3 +1,4 @@
+<%@page import="travelbook.UserController"%>
 <%@ page import="travelbook.User"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,8 @@
 				</div>
 			</sec:ifNotLoggedIn>
 			<sec:ifLoggedIn>
+				<g:set var="userInstance" value="${User.findByUsername(sec.loggedInUserInfo(field:'username'))}" />
+				<g:set var="userInstanceFriends" value="${UserController.friends()}" />
 				<g:render template="/home" />
 			</sec:ifLoggedIn>
 		</div>
