@@ -1,6 +1,5 @@
 <h1>Se Connecter :</h1>
-<form method="POST"
-	action="${resource(file: 'j_spring_security_check')}">
+<form method="POST"	action="${resource(file: 'j_spring_security_check')}">
 	<div class="fieldcontain required">
 		<label for="j_username"> Username : <span
 			class="required-indicator">*</span>
