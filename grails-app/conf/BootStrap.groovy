@@ -7,7 +7,7 @@ import travelbook.User
 class BootStrap {
 
 	def init = { servletContext ->
-		// rajout des données pour les test concernant les utilisateurs
+		// rajout des donnï¿½es pour les test concernant les utilisateurs
 		User toto = new User(
 				username: "toto@gmail.com",
 				email: "toto@gmail.com",
@@ -64,7 +64,15 @@ class BootStrap {
 				log.error "${adama.errors}"
 			  }
 			
-		//Données gestion voyage
+			
+		adama.addToFriends(anna)
+		adama.addToFriends(jeremy)
+
+		anna.addToFriends(toto)	
+		
+		print adama.friends
+		
+		//Donnï¿½es gestion voyage
 			 
 		def Paris = new Travel(member:adama)
 		def Toulouse = new Travel(member:anna)
@@ -84,7 +92,7 @@ class BootStrap {
 		 Lyon.save();
 		 Cameroun.save();
 		
-		//Données gestion Album
+		//Donnï¿½es gestion Album
 		
 		Album PhotoParis = new Album ( name: 'PhotoParis', description: 'photo du voyage de paris', dateCreation: '', dateModification: '')
 		Album PhotoToulouse = new Album ( name: 'PhotoToulouse', description: 'photo du voyage de Toulouse', dateCreation: '', dateModification: '')
