@@ -43,7 +43,7 @@ class UserController {
 	def friends() {
 		def userInstance=  springSecurityService.currentUser
 		def userInstanceFriends = userInstance.getFriends() 
-		[userInstance: userInstance,userInstanceList: userInstanceFriends]
+		[userInstance: userInstance, userInstanceFriends: userInstanceFriends]
 	}
 
 	
