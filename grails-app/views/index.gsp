@@ -19,9 +19,6 @@
 					<g:render template="/user/loginForm" />
 				</div>
 			</sec:ifNotLoggedIn>
-			<sec:ifLoggedIn>
-				<g:render template="/friends" />
-			</sec:ifLoggedIn>
 		</div>
 	</body>
 </html>

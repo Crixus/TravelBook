@@ -43,9 +43,7 @@ class UserController {
 	def friends() {
 		def userInstance=  springSecurityService.currentUser
 		def userInstanceFriends = userInstance.getFriends() 
-		[userInstanceList: userInstanceFriends]
-		
-		redirect(action: "show", id: userInstance.id)
+		[userInstance: userInstance,userInstanceList: userInstanceFriends]
 	}
 
 	
