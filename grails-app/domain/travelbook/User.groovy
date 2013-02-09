@@ -66,8 +66,8 @@ class User {
 
 	def urlProfilePicture(Long id){
 		String filename = new String();
-		String defaut = "./images/profile/default.jpg"
-		filename = "./images/profile/"+id+".jpg"
+		String defaut = "/TravelBook/static/images/profile/default.jpg"
+		filename = "/TravelBook/static/images/profile/"+id+".jpg"
 		try
 		{
 		  BufferedReader reader = new BufferedReader(new FileReader(filename));

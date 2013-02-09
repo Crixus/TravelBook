@@ -21,6 +21,6 @@ class UserTests {
 				password: "pass");
 					
 		String path = Camille.urlProfilePicture(1)
-		assertTrue(path == "./images/profile/default.jpg" || path == "./images/profile/1.jpg")
+		assertTrue(path == "/TravelBook/static/images/profile/default.jpg" || path == "/TravelBook/static/images/profile/1.jpg")
 	}
 }
