@@ -48,8 +48,8 @@ class UserController {
 		def userInstance = User.findById(id);
 		def userInstanceFriends = userInstance.getFriends()
 		
-		def urlProfile = userInstance.urlProfilePicture(id)
-		[userInstance: userInstance, userInstanceFriends: userInstanceFriends, urlProfile: urlProfile]
+		def nameProfilePicture = userInstance.urlProfilePicture(id)
+		[userInstance: userInstance, userInstanceFriends: userInstanceFriends, nameProfilePicture: nameProfilePicture]
 	}
 	
 	def signin() {
