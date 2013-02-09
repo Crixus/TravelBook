@@ -66,8 +66,8 @@ class User {
 
 	def urlProfilePicture(Long id){
 		String filename = new String();
-		String defaut = "/TravelBook/static/images/profile/default.jpg"
-		filename = "/TravelBook/static/images/profile/"+id+".jpg"
+		String defaut = "/TravelBook/static/images/picts/p_default.jpg"
+		filename = "/TravelBook/static/images/picts/p_"+id+".jpg"
 		try
 		{
 		  BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -75,9 +75,22 @@ class User {
 		catch (Exception e)
 		{
 		  System.err.format("Exception occurred trying to read '%s'.", filename);
-		  return defaut
+		  return "p_default.jpg"
 		}
-		return filename
+		return "p_"+id+".jpg"
+	}
+	
+	def getAge(){
+		
+		 Calendar curr = Calendar.getInstance();
+		 Calendar birth = Calendar.getInstance();
+		 birth.setTime(this.dateOfBirth);
+		 int yeardiff = curr.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+		 curr.add(Calendar.YEAR,-yeardiff);
+		 if(birth.after(curr)){
+			 yeardiff = yeardiff - 1;
+		 }
+		 return yeardiff;
 	}
 	protected void encodePassword() {
 		if(springSecurityService ){

@@ -22,7 +22,7 @@
 				</tr>
 				<tr>
 					<td>Age : </td>
-					<td>${"Frank a pas fait son boulot"}</td>
+					<td>${userInstance.getAge()}</td>
 				</tr>
 			</table> 
 		</div>
