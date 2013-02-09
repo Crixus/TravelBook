@@ -33,9 +33,7 @@
 
 		<div id="banniere">
 			<h1 class="titleTravelBook">Travel Book</h1>
-		</div>
-		
-		
+		</div>	
 
 		<g:layoutBody />
 		

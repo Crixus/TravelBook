@@ -44,3 +44,21 @@ div.footer p{
 	margin: 5px;
 	padding: 0px;
 }
+
+div#page {
+	width: 100%;
+	text-align: center;
+}
+
+div#inscription_left, div#inscription_right {
+	display: inline-block;
+	vertical-align: top;
+}
+
+div#inscription_left {
+	width: 590px;
+}
+
+div#inscription_right {
+	width: 400px;
+}
