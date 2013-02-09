@@ -32,7 +32,7 @@
 			<tr>
 				<td>Age :</td>
 				<td>
-					${"Frank a pas fait son boulot"}
+					${userInstance.getAge()} years old
 				</td>
 			</tr>
 		</table>

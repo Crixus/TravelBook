@@ -8,11 +8,11 @@
 	<body>
 	<div id="page">
 		<h2>Friends of ${userInstance.lastName}</h2>
-		<table>
+		<table class="friends">
 			<g:each in="${userInstanceFriends}" status="i" var="friendInstance">
 				<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					<td>
-						PICTURE
+						<img class="profile" src="${resource(dir: 'images/picts/', file: friendInstance.urlProfilePicture())}" />
 					</td>
 					<td>
 						${friendInstance.firstName} ${friendInstance.lastName} 
