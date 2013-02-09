@@ -64,9 +64,9 @@ class User {
 		
 	}
 
-	def urlProfilePicture(Long id){
-		def reader = new File("web-app/images/picts/p_"+id+".jpg")
-		return (!reader.exists()) ? "p_default.jpg" : "p_"+id+".jpg";
+	def urlProfilePicture(){
+		def reader = new File("web-app/images/picts/p_"+this.getId()+".jpg")
+		return (!reader.exists()) ? "p_default.jpg" : "p_"+this.getId()+".jpg";
 	}
 	
 	def getAge(){
@@ -81,6 +81,7 @@ class User {
 		 }
 		 return yeardiff;
 	}
+	
 	protected void encodePassword() {
 		if(springSecurityService ){
 			password = springSecurityService.encodePassword(password)

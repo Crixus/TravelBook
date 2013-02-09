@@ -17,7 +17,7 @@ class UserTests {
 				gender: "F",
 				password: "pass");
 					
-		String path = Camille.urlProfilePicture(1)
+		String path = Camille.urlProfilePicture()
 		assertTrue(path == "p_default.jpg" || path == "p_1.jpg")
 	}
 	
