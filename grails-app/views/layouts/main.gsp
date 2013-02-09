@@ -23,26 +23,27 @@
 	<r:layoutResources />
 </head>
 <body>
-	<div id="page">
-		<div style="float: right;">
-			<sec:ifLoggedIn>
-				<span id="User">
-					Bonjour <sec username /> <small><g:link controller="logout">Deconnexion</g:link></small>
-				</span>
-			</sec:ifLoggedIn>
-		</div>
+	<div id="container">
 		
 		<!-- <div id="grailsLogo" role="banner">
 			<a href="http://grails.org"><img
 				src="${resource(dir: 'images', file: 'grails_logo.png')}"
 				alt="Grails" /></a>
 		</div> -->
-		<h1 class="titleTravelBook">TravelBook</h1>
+
+		<div id="banniere">
+			<h1 class="titleTravelBook">Travel Book</h1>
+		</div>
+		
+		
 
 		<g:layoutBody />
 		
 		<div class="footer" role="contentinfo">
-			<p>Copyright © 2012 TravelBook - Adama Bocoum, Fotso Frank, jeremy curny, Ludovic Campos, Maroun Chams</p>
+			<p>Copyright © 2013 TravelBook - Black TEAM</p>
+			<sec:ifLoggedIn>
+				<p><g:link controller="logout">Deconnexion</g:link></p>
+			</sec:ifLoggedIn>
 		</div>
 		
 		<div id="spinner" class="spinner" style="display: none;">

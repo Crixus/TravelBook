@@ -32,7 +32,6 @@ class UserController {
         redirect(action: "show", id: userInstance.id)
     }
 
-
 	def getcurrentuser() {
 		def userInstance = springSecurityService.currentUser
 		[userInstance: userInstance]
@@ -40,7 +39,7 @@ class UserController {
 	}
 	
 	def friends() {
-		def userInstance=  springSecurityService.currentUser
+		def userInstance = springSecurityService.currentUser
 		def userInstanceFriends = userInstance.getFriends() 
 		[userInstance: userInstance, userInstanceFriends: userInstanceFriends]
 	}

@@ -1,14 +1,46 @@
-div#page {
+div#container {
 	width: 1000px;
 	margin: 10px auto;
-	padding: 12px;
 	border: solid 1px black;
 	
 	-moz-box-shadow: 0 0 0.3em #255b17;
 	-webkit-box-shadow: 0 0 0.3em #255b17;
 	box-shadow: 0 0 0.3em #255b17;
+}
+
+div#banniere {
+	width: 100%;
+	height: 86px;
+	background-image: url("../images/travelbook/header-blue.png");
+}
+
+div#banniere h1 {
+	font-family: georgia,'droid sans',arial,sans-serif;
+	margin: 0px;
+	padding: 10px;
+	font-size: 35px;
+	color: white;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+div.footer {
+	width: 50%;
+	margin: 0px auto 10px auto;
+	padding: 0px;
+	
+	border: solid 1px black;
 	
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
 	border-radius: 15px;
+	
+	text-align: center;
+}
+
+div.footer p{
+	margin: 5px;
+	padding: 0px;
 }
