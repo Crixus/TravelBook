@@ -64,6 +64,21 @@ class User {
 		
 	}
 
+	def urlProfilePicture(Long id){
+		String filename = new String();
+		String defaut = "./images/profile/default.jpg"
+		filename = "./images/profile/"+id+".jpg"
+		try
+		{
+		  BufferedReader reader = new BufferedReader(new FileReader(filename));
+		}
+		catch (Exception e)
+		{
+		  System.err.format("Exception occurred trying to read '%s'.", filename);
+		  return defaut
+		}
+		return filename
+	}
 	protected void encodePassword() {
 		if(springSecurityService ){
 			password = springSecurityService.encodePassword(password)
