@@ -34,8 +34,7 @@ class UserController {
 
 
 	def getcurrentuser() {
-		//springSecurityService.currentUser
-		def userInstance=  springSecurityService.currentUser
+		def userInstance = springSecurityService.currentUser
 		[userInstance: userInstance]
 		
 	}
@@ -45,17 +44,22 @@ class UserController {
 		def userInstanceFriends = userInstance.getFriends() 
 		[userInstance: userInstance, userInstanceFriends: userInstanceFriends]
 	}
-
+	
+	def profile() {
+		def userInstance = springSecurityService.currentUser
+		def userInstanceFriends = userInstance.getFriends()
+		[userInstance: userInstance, userInstanceFriends: userInstanceFriends]
+	}
 	
 	def signin() {
 		User userInstance = new User()
-		userInstance.lastName= params["lastName"]
-		userInstance.firstName =params["firstName"]
-		userInstance.gender =params["gender"]
-		userInstance. email =params["email"]
-		userInstance. password =params["password"]
+		userInstance.lastName = params["lastName"]
+		userInstance.firstName = params["firstName"]
+		userInstance.gender = params["gender"]
+		userInstance.email = params["email"]
+		userInstance.password = params["password"]
 		userInstance.dateOfBirth = params["dateOfBirth"]
-		userInstance.friends= null
+		userInstance.friends = null
 		userInstance.travels = null 
 		userInstance.username = params["email"]
 		

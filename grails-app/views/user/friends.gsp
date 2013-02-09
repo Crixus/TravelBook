@@ -3,8 +3,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title>Friends of ${userInstance.lastName}</title>
 	</head>
 	<body>
 <h2>Friends of ${userInstance.lastName}</h2>

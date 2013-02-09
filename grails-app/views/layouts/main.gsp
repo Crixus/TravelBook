@@ -23,30 +23,34 @@
 	<r:layoutResources />
 </head>
 <body>
-	<div style="float: right;">
-		<sec:ifLoggedIn>
-			<span id="User">
-				Bonjour <sec username /> <small><g:link controller="logout">Deconnexion</g:link></small>
-			</span>
-		</sec:ifLoggedIn>
-	</div>
-	<div id="grailsLogo" role="banner">
-		<a href="http://grails.org"><img
-			src="${resource(dir: 'images', file: 'grails_logo.png')}"
-			alt="Grails" /></a>
-	</div>
+	<div id="page">
+		<div style="float: right;">
+			<sec:ifLoggedIn>
+				<span id="User">
+					Bonjour <sec username /> <small><g:link controller="logout">Deconnexion</g:link></small>
+				</span>
+			</sec:ifLoggedIn>
+		</div>
+		
+		<!-- <div id="grailsLogo" role="banner">
+			<a href="http://grails.org"><img
+				src="${resource(dir: 'images', file: 'grails_logo.png')}"
+				alt="Grails" /></a>
+		</div> -->
+		<h1 class="titleTravelBook">TravelBook</h1>
 
-	<g:layoutBody />
-	
-	<div class="footer" role="contentinfo">
-		<p>Copyright © 2012 TravelBook - Adama Bocoum, Fotso Frank, jeremy curny, Ludovic Campos, Maroun Chams</p>
+		<g:layoutBody />
+		
+		<div class="footer" role="contentinfo">
+			<p>Copyright © 2012 TravelBook - Adama Bocoum, Fotso Frank, jeremy curny, Ludovic Campos, Maroun Chams</p>
+		</div>
+		
+		<div id="spinner" class="spinner" style="display: none;">
+			<g:message code="spinner.alt" default="Loading&hellip;" />
+		</div>
+		<g:javascript library="application" />
+		
+		<r:layoutResources />
 	</div>
-	
-	<div id="spinner" class="spinner" style="display: none;">
-		<g:message code="spinner.alt" default="Loading&hellip;" />
-	</div>
-	<g:javascript library="application" />
-	
-	<r:layoutResources />
 </body>
 </html>

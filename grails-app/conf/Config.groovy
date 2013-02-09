@@ -98,7 +98,7 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'travelbook.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'travelbook.UserRole'
 grails.plugins.springsecurity.authority.className = 'travelbook.Role'
 grails.plugins.springsecurity.rejectIfNoRule = true
-grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/user/friends'
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/user/profile'
 grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugins.springsecurity.interceptUrlMap = [
 	'/js/**':                               ['IS_AUTHENTICATED_ANONYMOUSLY'],
