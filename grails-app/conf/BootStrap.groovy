@@ -112,11 +112,9 @@ class BootStrap {
 		adama.addToFriends(anna)
 		adama.addToFriends(jeremy)
 		adama.addToFriends(toto)
-		adama.addToFriends(Camille)
-		adama.addToFriends(Matt)
-		adama.addToFriends(Julie)
 
 		anna.addToFriends(toto)
+		anna.addToFriends(jeremy)
 
 		def Paris = new Travel(member:adama)
 		def Toulouse = new Travel(member:anna)

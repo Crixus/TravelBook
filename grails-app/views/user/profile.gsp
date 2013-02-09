@@ -9,7 +9,7 @@
 		<div id="page">
 			<h2>${userInstance.lastName} ${userInstance.firstName}'s profile</h2>
 			
-			<img src="${urlProfile}" alt="Profile Picture">
+			<img src="${resource(dir: 'images/picts/', file: nameProfilePicture)}" />
 				
 			<table>
 				<tr>
