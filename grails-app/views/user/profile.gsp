@@ -21,7 +21,7 @@
 					<td>${userInstance.gender}</td>
 				</tr>
 				<tr>
-					<td>Age : </td>
+					<td>Age: </td>
 					<td>${userInstance.getAge()}</td>
 				</tr>
 			</table> 
