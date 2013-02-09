@@ -48,11 +48,12 @@ div.footer p{
 div#page {
 	width: 100%;
 	text-align: center;
+	padding-bottom: 20px;
 }
 
 div#inscription_left, div#inscription_right {
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 div#inscription_left {
@@ -61,4 +62,75 @@ div#inscription_left {
 
 div#inscription_right {
 	width: 400px;
+}
+
+div#inscription_right form {
+	width: 100%;
+	text-align: left;
+}
+
+div#inscription_right div.champs {
+
+}
+
+div#inscription_right div.champs label {
+	font-weight: bold;
+}
+
+div#inscription_right div.champs input:not([type="submit"]), div#inscription_right div.champs form textarea {
+	width: 90%;
+}
+
+input, textarea, select {
+	margin-bottom: 10px;
+	border: solid 1px #E1E1E1;
+	padding: 5px;
+}
+
+form input:not([type="submit"]):invalid, form textarea:invalid {
+	background: url('../images/red_asterisk.png') 98% center no-repeat;
+}
+
+form input:not([type="submit"]):focus:invalid, form textarea:focus:invalid {
+	border-color: #FF7777;
+	background-image: none;
+	-webkit-box-shadow: 0 0 5px #FF7777;
+	-moz-box-shadow: 0 0 5px #FF7777;
+	box-shadow: 0 0 5px #FF7777;
+}
+
+form input:not([type="submit"]):focus:valid, form textarea:focus:valid {
+	border-color: #AAFFAA;
+	background: url('../images/valid.png') 98% center no-repeat;
+	-webkit-box-shadow: 0 0 5px #AAFFAA;
+	-moz-box-shadow: 0 0 5px #AAFFAA;
+	box-shadow: 0 0 5px #AAFFAA;
+}
+
+input.login {
+	color: white;
+	
+	padding: 5px 10px;
+	
+	font-size: 19px;
+	
+	background: -webkit-gradient(linear, center top, center bottom, from(#6755ae), to(#574388));
+	background: -webkit-linear-gradient(top, #6755ae, #574388);
+	background-color: #574388;
+	-webkit-box-shadow: inset 0 1px 1px #a488e3;
+	border-color: #3b6e22 #3b6e22 #2c5115;
+}
+
+input.signin {
+	color: white;
+	
+	padding: 5px 10px;
+	
+	font-size: 19px;
+	
+	background: -webkit-gradient(linear, center top, center bottom, from(#67ae55), to(#578843));
+	background: -webkit-linear-gradient(top, #67ae55, #578843);
+	background-color: #69a74e;
+	-webkit-box-shadow: inset 0 1px 1px #a4e388;
+	border-color: #3b6e22 #3b6e22 #2c5115;
 }
