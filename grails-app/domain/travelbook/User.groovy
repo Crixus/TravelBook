@@ -65,19 +65,8 @@ class User {
 	}
 
 	def urlProfilePicture(Long id){
-		String filename = new String();
-		String defaut = "/TravelBook/static/images/picts/p_default.jpg"
-		filename = "/TravelBook/static/images/picts/p_"+id+".jpg"
-		try
-		{
-		  BufferedReader reader = new BufferedReader(new FileReader(filename));
-		}
-		catch (Exception e)
-		{
-		  System.err.format("Exception occurred trying to read '%s'.", filename);
-		  return "p_default.jpg"
-		}
-		return "p_"+id+".jpg"
+		def reader = new File("web-app/images/picts/p_"+id+".jpg")
+		return (!reader.exists()) ? "p_default.jpg" : "p_"+id+".jpg";
 	}
 	
 	def getAge(){
