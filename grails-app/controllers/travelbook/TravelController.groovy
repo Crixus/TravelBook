@@ -37,14 +37,22 @@ class TravelController {
     }
 
     def show(Long id) {
+		if(!springSecurityService){
+			redirect(uri: "/error")
+			return
+		}
+		User userInstance = springSecurityService.getCurrentUser()
+		
         def travelInstance = Travel.get(id)
         if (!travelInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'travel.label', default: 'Travel'), id])
             redirect(action: "list")
             return
         }
+		
+		def traveler = travelInstance.getMember()
 
-        [travelInstance: travelInstance]
+        [userInstance: userInstance, travelInstance: travelInstance, traveler: traveler, listOfPictures: travelInstance.listOfPictures()]
     }
 
     def edit(Long id) {
