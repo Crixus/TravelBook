@@ -47,14 +47,14 @@ class UserController {
 	
 	
 	def redirectLogged( ) {
-		def userInstance = springSecurityService.currentUser
-		redirect(action: "profile", id: userInstance.id)
+		User userInstance = springSecurityService.currentUser
+		print (userInstance.id)
+		redirect(action: "profile" , id:userInstance.id)
 	}
 	
 	def profile(Long id) {
 		def userInstance = User.findById(id);
-		def userInstanceFriends = userInstance.getFriends()
-		
+		def userInstanceFriends = userInstance.getFriends()		
 		def nameProfilePicture = userInstance.urlProfilePicture()
 		[userInstance: userInstance, userInstanceFriends: userInstanceFriends, nameProfilePicture: nameProfilePicture]
 	}
