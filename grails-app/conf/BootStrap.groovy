@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat
 import java.util.Date;
 
 import travelbook.Album
@@ -49,11 +50,13 @@ class BootStrap {
 			log.error "Could not save user!!"
 			log.error "${anna.errors}"
 		}
-
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
 		User adama = new User(
 				username: "adama@gmail.com",
 				email: "adama@gmail.com",
-				dateOfBirth: new Date()-118,
+				dateOfBirth: simpleDateFormat.parse("22/06/2006"),
 				lastName:"Bocoum",
 				firstName: "Adama",
 				gender: "M",
@@ -109,11 +112,9 @@ class BootStrap {
 		adama.addToFriends(anna)
 		adama.addToFriends(jeremy)
 		adama.addToFriends(toto)
-		adama.addToFriends(Camille)
-		adama.addToFriends(Matt)
-		adama.addToFriends(Julie)
 
 		anna.addToFriends(toto)
+		anna.addToFriends(jeremy)
 
 		def Paris = new Travel(member:adama)
 		def Toulouse = new Travel(member:anna)

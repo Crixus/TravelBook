@@ -23,7 +23,11 @@ div#banniere h1 {
 }
 
 h2 {
+	width: 100%;
 	font-size: 20px;
+	color: #0080ff;
+	border-bottom: solid 1px #0080ff;
+	text-align: left;
 }
 
 div.footer {
@@ -46,9 +50,10 @@ div.footer p{
 }
 
 div#page {
-	width: 100%;
+	width: 98%;
 	text-align: center;
 	padding-bottom: 20px;
+	margin: 0px auto;
 }
 
 div#inscription_left, div#inscription_right {
@@ -57,7 +62,7 @@ div#inscription_left, div#inscription_right {
 }
 
 div#inscription_left {
-	width: 590px;
+	width: 560px;
 }
 
 div#inscription_right {
@@ -78,7 +83,7 @@ div#inscription_right div.champs label {
 }
 
 div#inscription_right div.champs input:not([type="submit"]), div#inscription_right div.champs form textarea {
-	width: 90%;
+	width: 95%;
 }
 
 input, textarea, select {
