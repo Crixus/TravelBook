@@ -33,7 +33,7 @@ class UserSpec extends Specification{
             assert obj.errors[field]
             assert error == obj.errors[field]
         } else {
-            assert !obj.errors[field]
+             assert !obj.errors[field]
         }
         //println ("erreur attendue : "+error+ ", pour le champ : "+field+ ", avec la valeur : "+obj."$field"+", erreur obtenu : "+obj.errors[field])
     }
