@@ -2,7 +2,6 @@ package travelbook
 
 @TestFor(TravelController)
 @Mock(Travel)
- 
 class TravelControllerTests {
 
 	User user = new User(
@@ -14,7 +13,7 @@ class TravelControllerTests {
 	gender: "M",
 	password: "pass")
 
-	def populateValidParams(params) {
+		def populateValidParams(params) {
 		assert params != null
 
 		params["destination"] = "Marakech"
@@ -27,6 +26,30 @@ class TravelControllerTests {
 		controller.index()
 		assert "/travel/list" == response.redirectedUrl
 	}
+
+	void testList() {
+		
+		User toto = new User(
+			username: "toto@gmail.com",
+			email: "toto@gmail.com",
+			dateOfBirth: new Date()-120,
+			lastName:"McLane",
+			firstName: "Toto",
+			gender: "M",
+			password: "pass");
+
+
+		Travel Paris = new Travel (destination: 'Paris', dateDebut:new Date()-86, dateFin: new Date(), member:toto)
+		Travel Toulouse = new Travel (destination: 'Toulouse', dateDebut:new Date()-86, dateFin: new Date(), member:toto)
+		Paris.save();
+		Toulouse.save();
+
+		def model = controller.list()
+		assert model == null
+		assert response.redirectedUrl == '/error'
+		
+	}
+		
 
 	void testCreate() {
 		def model = controller.create()
