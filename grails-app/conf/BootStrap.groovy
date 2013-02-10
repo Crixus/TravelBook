@@ -69,7 +69,7 @@ class BootStrap {
 		User Marouan = new User(
 				username: "marouan@gmail.com",
 				email: "marouan@gmail.com",
-				dateOfBirth: new Date()-240 ,
+				dateOfBirth: Date.parse("yyyy-M-d", "1965-07-17"),
 				lastName:"Chamss",
 				firstName: "Marouan",
 				gender: "M",
