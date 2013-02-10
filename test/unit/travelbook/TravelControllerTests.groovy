@@ -1,9 +1,13 @@
 package travelbook
 
+<<<<<<< HEAD
 import grails.test.mixin.*
 
 @TestFor(TravelController)
 @Mock(Travel)
+=======
+@Mock([Travel])
+>>>>>>> 9e2f893c0432933a9c75c48207fdfdc77dc35b56
 class TravelControllerTests {
 
 	User user = new User(
@@ -30,7 +34,7 @@ class TravelControllerTests {
 	}
 
 	void testList() {
-
+		params.id = 4
 		def model = controller.list()
 
 		assert model.travelInstanceList.size() == 0

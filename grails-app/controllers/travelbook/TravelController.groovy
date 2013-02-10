@@ -1,5 +1,6 @@
 package travelbook
 
+import grails.plugins.springsecurity.SpringSecurityService
 import org.springframework.dao.DataIntegrityViolationException
 
 class TravelController {
@@ -10,9 +11,9 @@ class TravelController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [travelInstanceList: Travel.list(params), travelInstanceTotal: Travel.count()]
+    def list(long id) {
+		User userInstance = User.findById(id)
+        [userInstance: userInstance, travelInstanceList: Travel.list(params), travelInstanceTotal: Travel.count()]
     }
 
     def create() {

@@ -12,12 +12,14 @@
 			<g:each in="${userInstanceFriends}" status="i" var="friendInstance">
 				<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					<td>
-						<g:link controller="user" action="profile" id="${memberInstance?.id}">
+						<g:link controller="user" action="profile" id="${friendInstance?.id}">
 							<img class="profile" src="${resource(dir: 'images/picts/', file: friendInstance.urlProfilePicture())}" />
 						</g:link>
 					</td>
 					<td>
-						${friendInstance.firstName} ${friendInstance.lastName} 
+						<g:link controller="user" action="profile" id="${friendInstance?.id}">
+							${friendInstance.firstName} ${friendInstance.lastName} 
+						</g:link>
 					</td>
 					<td>
 					${friendInstance.id}
