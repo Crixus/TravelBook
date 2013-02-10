@@ -39,12 +39,39 @@ class UserControllerTests {
 
 
 	void testList() {
-
+		def model = controller.list()
+		
+		assert model.usersList.size() == 0
+		assert model.usersTotal == 0
+		assert model.userInstance == null
 	}
 
+	void testFriends(){
+//		def model = controller.friends()
+//		
+//		assert model.userInstanceFriends == null
+//		assert model.userInstance == null
+	}
+	
+	void testRedirectLogged(){
+//		def model = controller.redirectLogged()
+//		
+//		assert response.redirectedUrl == ''
+	}
+	
+	void testProfile(){
+//		def model = controller.profile(4)
+//		
+//		print model.userProfile
+//		print model.userProfileFriends
+//		print model.userProfileTravels
+//		print model.nameProfilePicture 
+//		print model.userInstance 
+	}
+	
 	void testCreate() {
 		def model = controller.create()
-
+		
 		assert model.userInstance != null
 	}
 
