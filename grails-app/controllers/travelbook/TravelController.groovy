@@ -5,14 +5,16 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class TravelController {
 
+	def springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
     }
 
-    def list(long id) {
-		User userInstance = User.findById(id)
+    def list() {
+		 
+		User userInstance = springSecurityService.getCurrentUser()
         [userInstance: userInstance, travelInstanceList: Travel.list(params), travelInstanceTotal: Travel.count()]
     }
 

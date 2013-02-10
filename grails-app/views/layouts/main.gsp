@@ -38,7 +38,7 @@
 		<sec:ifLoggedIn>
 			<div id="nav">
 				<ul>
-					<li><g:link controller="travel" action="list" id="${userInstance?.id}">Last travels</g:link></li>
+					<li><g:link controller="travel" action="list">Last travels</g:link></li>
 					<li><g:link controller="user" action="list">Members list</g:link></li>
 					<li><g:link controller="user" action="friends">Friends list</g:link></li>
 					<li><g:link controller="user" action="profile" id="${userInstance?.id}">My profile</g:link></li>
