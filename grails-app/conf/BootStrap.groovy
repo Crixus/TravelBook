@@ -79,12 +79,74 @@ class BootStrap {
 			log.error "${Marouan.errors}"
 		}
 
+		
+		User Frank = new User(
+			username: "frank@gmail.com",
+			email: "frank@gmail.com",
+			dateOfBirth: Date.parse("yyyy-M-d", "1975-07-16"),
+			lastName:"frank",
+			firstName: "fotso",
+			gender: "M",
+			password: "pass");
+
+	if (!Frank.save()){
+		log.error "Could not save user!!"
+		log.error "${Marouan.errors}"
+	}
+	
+	User Ludovic = new User(
+		username: "ludo@gmail.com",
+		email: "ludo@gmail.com",
+		dateOfBirth: Date.parse("yyyy-M-d", "1985-02-17"),
+		lastName:"ludo",
+		firstName: "PtitLu",
+		gender: "M",
+		password: "pass");
+
+if (!Ludovic.save()){
+	log.error "Could not save user!!"
+	log.error "${Marouan.errors}"
+}
+		
+		
+		
 		adama.addToFriends(anna)
 		adama.addToFriends(jeremy)
 		adama.addToFriends(toto)
+		adama.addToFriends(Marouan)
+		adama.addToFriends(Ludovic)
+		adama.addToFriends(Frank)
 
 		anna.addToFriends(toto)
 		anna.addToFriends(jeremy)
+		anna.addToFriends(Marouan)
+		anna.addToFriends(Ludovic)
+		anna.addToFriends(Frank)
+		
+		Marouan.addToFriends(anna)
+		Marouan.addToFriends(jeremy)
+		Marouan.addToFriends(Ludovic)
+		Marouan.addToFriends(Frank)
+		
+		Ludovic.addToFriends(anna)
+		Ludovic.addToFriends(Marouan)
+		Ludovic.addToFriends(Frank)
+		
+		Frank.addToFriends(anna)
+		Frank.addToFriends(Marouan)
+		Frank.addToFriends(Ludovic)
+		Frank.addToFriends(adama)
+		
+		
+		
+		toto.addToFriends(adama)
+		toto.addToFriends(anna)
+		
+
+
+
+		
+		
 
 		Travel Paris = new Travel (destination: 'Paris', dateDebut:new Date()-86, dateFin: new Date(), member:adama)
 		Travel Toulouse = new Travel (destination: 'Toulouse', dateDebut:new Date()-86, dateFin: new Date(), member:adama)
