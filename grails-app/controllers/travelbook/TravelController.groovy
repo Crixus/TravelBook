@@ -13,9 +13,12 @@ class TravelController {
     }
 
     def list() {
-		 
-		User userInstance = springSecurityService.getCurrentUser()
-        [userInstance: userInstance, travelInstanceList: Travel.list(params), travelInstanceTotal: Travel.count()]
+		if(springSecurityService){
+			User userInstance = springSecurityService.getCurrentUser()
+			[userInstance: userInstance, travelInstanceList: Travel.list(params), travelInstanceTotal: Travel.count()]
+		}
+		return 
+		redirect(uri: "/error")
     }
 
     def create() {
