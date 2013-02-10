@@ -157,3 +157,17 @@ table.travels img.travel {
 	max-width: 200px;
 	max-height: 150px;
 }
+
+img.travel_picture {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+table.minis_pictures {
+	margin: 0px auto 10px auto;
+	}
+
+table.minis_pictures td {
+	vertical-align: top;
+	text-align: center;
+}
