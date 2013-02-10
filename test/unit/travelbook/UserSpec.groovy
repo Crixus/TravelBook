@@ -23,7 +23,7 @@ class UserSpec extends Specification{
     
     def setup() {
         //mock a person with some data (put unique violations in here so they can be tested, the others aren't needed)
-        mockForConstraintsTests(User, [new User(firstName: 'toto')])
+          mockForConstraintsTests(User, [new User(firstName: 'toto')])
     }
     
     void validateConstraints(obj, field, error) {
