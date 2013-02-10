@@ -69,6 +69,9 @@ class UserControllerTests {
 		assert controller.flash.message != null
 		assert User.count() == 1
 	}
+	
+	
+	  
 
 	void testSave() {
 		params.flush = true
