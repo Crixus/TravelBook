@@ -17,7 +17,9 @@
 						</g:link>
 					</td>
 					<td>
-						${friendInstance.firstName} ${friendInstance.lastName} 
+						<g:link controller="user" action="profile" id="${friendInstance?.id}">
+							${friendInstance.firstName} ${friendInstance.lastName} 
+						</g:link>
 					</td>
 					<td>
 						<g:form controller="user">

@@ -87,23 +87,15 @@ class BootStrap {
 		anna.addToFriends(toto)
 		anna.addToFriends(jeremy)
 
-		def Paris = new Travel(member:adama)
-		def Toulouse = new Travel(member:anna)
-		def Nantes = new Travel(member:toto)
-		def Lyon = new Travel(member:jeremy)
-		def Cameroun = new Travel(member:toto)
-
-		Paris = new Travel (destination: 'Paris', dateDebut:new Date()-86, dateFin: new Date()-80, anna:User)
-		Toulouse = new Travel (destination: 'Toulouse', dateDebut:new Date()-86, dateFin: new Date()-75, adama: User)
-		Nantes = new Travel (destination: 'Nantes', dateDebut:new Date()-86, dateFin: new Date()-80, anna:User)
-		Lyon = new Travel (destination: 'Lyon', dateDebut:new Date()-86, dateFin: new Date()-75, adama: User)
-		Cameroun = new Travel (destination: 'Cameroun', dateDebut:new Date()-86, dateFin: new Date()-75, adama: User)
+		Travel Paris = new Travel (destination: 'Paris', dateDebut:new Date()-86, dateFin: new Date(), member:adama)
+		Travel Toulouse = new Travel (destination: 'Toulouse', dateDebut:new Date()-86, dateFin: new Date(), member:adama)
+		Travel Nantes = new Travel (destination: 'Nantes', dateDebut:new Date()-86, dateFin: new Date(), member:anna)
+		Travel Lyon = new Travel (destination: 'Lyon', dateDebut:new Date()-86, dateFin: new Date(), member:jeremy)
 
 		Paris.save();
 		Toulouse.save();
 		Nantes.save();
 		Lyon.save();
-		Cameroun.save();
 
 		Album PhotoParis = new Album ( name: 'PhotoParis', description: 'photo du voyage de paris', dateCreation: '', dateModification: '')
 		Album PhotoToulouse = new Album ( name: 'PhotoToulouse', description: 'photo du voyage de Toulouse', dateCreation: '', dateModification: '')
