@@ -30,14 +30,6 @@ class TravelControllerTests {
 		assert "/travel/list" == response.redirectedUrl
 	}
 
-	void testList() {
-		params.id = 4
-		def model = controller.list()
-
-		assert model.travelInstanceList.size() == 0
-		assert model.travelInstanceTotal == 0
-	}
-
 	void testCreate() {
 		def model = controller.create()
 

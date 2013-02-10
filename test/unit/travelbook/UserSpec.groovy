@@ -1,8 +1,7 @@
 package travelbook
 
 import grails.test.mixin.TestFor
-import spock.lang.Specification
-import spock.lang.Unroll
+import spock.lang.*
 
 //import grails.test.mixin.*
 import grails.test.mixin.support.*
