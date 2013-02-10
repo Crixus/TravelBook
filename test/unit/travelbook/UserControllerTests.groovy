@@ -46,15 +46,7 @@ class UserControllerTests {
 
 	
 	void testList() {
-		def model
-		model = controller.list()
-		assert model.userInstanceList.size() == 0
-		assert model.userInstanceTotal == 0
 		
-		params.max = 1000
-		model = controller.list()
-		assert model.userInstanceList.size() == 0
-		assert model.userInstanceTotal == 0
 	}
 
 	void testCreate() {
