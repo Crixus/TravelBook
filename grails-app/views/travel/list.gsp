@@ -8,44 +8,30 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<div id="list-travel" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
-				<thead>
-					<tr>
-					
-						<g:sortableColumn property="destination" title="${message(code: 'travel.destination.label', default: 'Destination')}" />
-					
-						<g:sortableColumn property="dateDebut" title="${message(code: 'travel.dateDebut.label', default: 'Date Debut')}" />
-					
-						<g:sortableColumn property="dateFin" title="${message(code: 'travel.dateFin.label', default: 'Date Fin')}" />
-					
-						<th><g:message code="travel.member.label" default="Member" /></th>
-					
-					</tr>
-				</thead>
-				<tbody>
+		<div id="page">
+			<h2>Travels list</h2>
+			<table class="travels">
 				<g:each in="${travelInstanceList}" status="i" var="travelInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${travelInstance.id}">${fieldValue(bean: travelInstance, field: "destination")}</g:link></td>
-					
-						<td><g:formatDate date="${travelInstance.dateDebut}" /></td>
-					
-						<td><g:formatDate date="${travelInstance.dateFin}" /></td>
-					
-						<td>${fieldValue(bean: travelInstance, field: "member")}</td>
-					
+						<td>
+							<g:link controller="travel" action="show" id="${travelInstance?.id}">
+								<img class="travel" src="${resource(dir: 'images/picts/', file: travelInstance.urlMainPicture())}" />
+							</g:link>
+						</td>
+						<td>
+							<g:link controller="travel" action="show" id="${travelInstance?.id}">
+								${travelInstance.getDestination()}
+							</g:link>
+						</td>
+						<td>
+							${travelInstance.getDateDebut()}
+						</td>
+						<td>
+							${travelInstance.getDateFin()} 
+						</td>
 					</tr>
 				</g:each>
-				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${travelInstanceTotal}" />
-			</div>
 		</div>
 	</body>
 </html>

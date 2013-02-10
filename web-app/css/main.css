@@ -140,7 +140,7 @@ input.signin {
 	border-color: #3b6e22 #3b6e22 #2c5115;
 }
 
-table.users, table.friends {
+table.users, table.friends, table.travels {
 	margin: 0px auto 10px auto;
 }
 
@@ -151,4 +151,9 @@ table.users td, table.friends td{
 table.users img.profile, table.friends img.profile {
 	max-width: 100px;
 	max-height: 100px;
+}
+
+table.travels img.travel {
+	max-width: 200px;
+	max-height: 150px;
 }
