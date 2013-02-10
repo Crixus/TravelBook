@@ -6,14 +6,14 @@ class Album {
 	String description;
 	Date dateCreation;
 	Date dateModification;
-	
+
 	Travel travel
-	
+
 	static belongsTo = [travel : Travel]
 	static hasMany = [pictures: Picture]
-	
-    static constraints = {
+
+	static constraints = {
 		name (blank: false, unique: true)
 		description (blank: true, nullable: true)
-    }
+	}
 }

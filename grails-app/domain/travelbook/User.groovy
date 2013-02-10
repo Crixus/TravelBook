@@ -84,9 +84,9 @@ class User {
 			password = springSecurityService.encodePassword(password)
 		}
 	}
-	
+
 	def isFriendWith(User friend) {
 		return friends.contains(friend)
 	}
-	
+
 }
