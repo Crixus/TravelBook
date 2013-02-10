@@ -7,13 +7,11 @@ class Travel {
 	Date dateFin;
 
 	static belongsTo = [member : User]
-	static hasMany = [albums: Album]
 
 	static constraints = {
 		destination (blank: false, size: 3..16)
 		dateDebut (blank:false)
 		dateFin (blank:false, validator:{val, obj -> val?.after(obj.dateDebut)})
-		albums(nullable:true)
 	}
 	
 	def urlMainPicture(){

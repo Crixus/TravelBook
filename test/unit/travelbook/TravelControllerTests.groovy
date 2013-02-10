@@ -1,7 +1,5 @@
 package travelbook
 
-import grails.test.mixin.*
-
 @TestFor(TravelController)
 @Mock(Travel)
  
