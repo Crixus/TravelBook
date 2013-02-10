@@ -9,8 +9,8 @@ import grails.plugins.springsecurity.SpringSecurityService
 @Mock([User , SpringSecurityService])
 class UserControllerTests {
 
-	
-	 
+
+
 	def populateValidParams(params) {
 		assert params != null
 
@@ -21,9 +21,9 @@ class UserControllerTests {
 		params["email"]= "cedric@gmail.com"
 		params["gender"] = "M"
 		params["dateOfBirth"] = new Date("1988/07/17")
-	
+
 	}
-	
+
 	def populateValidParamsForsign(params) {
 		assert params != null
 
@@ -36,17 +36,15 @@ class UserControllerTests {
 		params["dateOfBirth"] = new Date("1988/07/17")
 	}
 
-	
-
 	void testIndex() {
 		controller.index()
- 
+
 		assert "/user/list" == response.redirectedUrl
 	}
 
-	
+
 	void testList() {
-		
+
 	}
 
 	void testCreate() {
@@ -57,11 +55,11 @@ class UserControllerTests {
 
 	void testSignin() {
 		params.flush = true
-		 
+
 		// Test invalid
 		controller.signin()
 
- 
+
 		assert model.userInstance != null
 		assert view == '/user/create'
 
@@ -71,19 +69,19 @@ class UserControllerTests {
 		populateValidParamsForsign(params)
 		controller.signin()
 
- 
+
 		assert response.redirectedUrl == '/user/show/1'
 		assert controller.flash.message != null
 		assert User.count() == 1
 	}
-	
+
 	void testSave() {
 		params.flush = true
-		
+
 		// Test invalid
 		controller.save()
 
- 
+
 		assert model.userInstance != null
 		assert view == '/user/create'
 
@@ -93,15 +91,15 @@ class UserControllerTests {
 		populateValidParams(params)
 		controller.save()
 
- 
+
 		assert response.redirectedUrl == '/user/show/1'
 		assert controller.flash.message != null
 		assert User.count() == 1
 	}
-	
+
 	void testShow() {
 		controller.show()
- 
+
 		assert flash.message != null
 		assert response.redirectedUrl == '/user/list'
 
@@ -119,14 +117,14 @@ class UserControllerTests {
 
 	void testgetcurrentuser() {
 		def model = controller. getcurrentuser()
- 
+
 		assert model.userInstance == null
 	}
-	
+
 	void testEdit() {
 		controller.edit()
 
- 
+
 		assert flash.message != null
 		assert response.redirectedUrl == '/user/list'
 
@@ -189,14 +187,14 @@ class UserControllerTests {
 
 		// test invalid parameters in update
 		params.id = user.id
-		
+
 		params.email = "invalid-mail.com"
 
 		controller.update()
- 
+
 		assert view == "/user/edit"
 		assert model.userInstance != null
- 
+
 
 		user.clearErrors()
 
@@ -225,7 +223,7 @@ class UserControllerTests {
 		controller.delete()
 		assert flash.message != null
 		assert response.redirectedUrl == '/user/list'
- 
+
 		response.reset()
 
 		populateValidParams(params)
@@ -237,14 +235,19 @@ class UserControllerTests {
 		params.id = user.id
 
 		controller.delete()
- 
+
 
 		assert User.count() == 0
 		assert User.get(user.id) == null
 		assert response.redirectedUrl == '/user/list'
 	}
+<<<<<<< HEAD
 	
 	
 	
+=======
+
+
+>>>>>>> 61f11e6a87c73ad2116363f8ca2f56c6e6d810a1
 
 }

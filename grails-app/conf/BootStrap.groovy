@@ -50,7 +50,7 @@ class BootStrap {
 			log.error "Could not save user!!"
 			log.error "${anna.errors}"
 		}
-		
+
 		User adama = new User(
 				username: "adama@gmail.com",
 				email: "adama@gmail.com",
@@ -98,7 +98,7 @@ class BootStrap {
 		Nantes = new Travel (destination: 'Nantes', dateDebut:new Date()-86, dateFin: new Date()-80, anna:User)
 		Lyon = new Travel (destination: 'Lyon', dateDebut:new Date()-86, dateFin: new Date()-75, adama: User)
 		Cameroun = new Travel (destination: 'Cameroun', dateDebut:new Date()-86, dateFin: new Date()-75, adama: User)
-		
+
 		Paris.save();
 		Toulouse.save();
 		Nantes.save();
@@ -110,7 +110,7 @@ class BootStrap {
 		Album PhotoNantes = new Album ( name: 'PhotoNantes', description: 'photo du voyage de Nantes', dateCreation: '', dateModification: '')
 		Album PhotoLyon = new Album ( name: 'PhotoLyon', description: 'photo du voyage de Lyon', dateCreation: '', dateModification: '')
 		Album PhotoCameroun = new Album ( name: 'PhotoCameroun', description: 'photo du voyage de Cameroun', dateCreation: '', dateModification: '')
-		
+
 		PhotoParis.save();
 		PhotoToulouse.save();
 		PhotoNantes.save();
