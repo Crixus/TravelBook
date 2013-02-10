@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class AlbumController {
 
-	def springSecurityService
+	 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -14,7 +14,7 @@ class AlbumController {
     }
 
     def list(Integer max) {
-		print springSecurityService.getCurrentUser().id	
+		 	
         params.max = Math.min(max ?: 10, 100)
         [albumInstanceList: Album.list(params), albumInstanceTotal: Album.count()]
     }
