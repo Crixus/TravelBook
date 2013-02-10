@@ -2,7 +2,6 @@ package travelbook
 
 @TestFor(TravelController)
 @Mock(Travel)
- 
 class TravelControllerTests {
 
 	User user = new User(
