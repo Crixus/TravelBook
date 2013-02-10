@@ -44,6 +44,8 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.8.0"
         runtime ":resources:1.1.6"
 		
+		test ":spock:0.6"
+		
 		//test(":spock:0.7") {
 		//	exclude "spock-grails-support"
 		//  }
