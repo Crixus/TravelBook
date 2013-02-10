@@ -46,7 +46,9 @@ class LoginController {
 		if (springSecurityService.isLoggedIn()) {
 			//redirect uri: config.successHandler.defaultTargetUrl
 			def userInstance = springSecurityService.currentUser
-			redirect(controller: "User", action: "profile" , id:userInstance.id)
+			def idconnect = userInstance.id
+			redirect(controller: "User", action: "redirectLogged")
+			 
 			return
 		}
 
