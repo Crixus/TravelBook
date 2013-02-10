@@ -53,10 +53,12 @@ class UserController {
 	}
 	
 	def profile(Long id) {
-		def userInstance = User.findById(id);
-		def userInstanceFriends = userInstance.getFriends()		
-		def nameProfilePicture = userInstance.urlProfilePicture()
-		[userInstance: userInstance, userInstanceFriends: userInstanceFriends, nameProfilePicture: nameProfilePicture]
+		def userInstance = springSecurityService.currentUser
+		def userProfile = User.findById(id);
+		def userProfileFriends = userProfile.getFriends()	
+		def userProfileTravels = userProfile.getTravels()	
+		def nameProfilePicture = userProfile.urlProfilePicture()
+		[userInstance: userInstance, userProfile: userProfile, userProfileFriends: userProfileFriends, userProfileTravels: userProfileTravels, nameProfilePicture: nameProfilePicture]
 	}
 	
 	def signin() {
