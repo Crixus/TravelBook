@@ -1,8 +1,7 @@
 package travelbook
 
-import java.util.Date;
-
 import grails.plugins.springsecurity.SpringSecurityService
+import grails.test.mixin.*
 @TestFor(UserController)
 @Mock([User , SpringSecurityService])
 class UserControllerTests {

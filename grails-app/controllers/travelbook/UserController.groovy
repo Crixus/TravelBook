@@ -4,12 +4,7 @@ import grails.plugins.springsecurity.SpringSecurityService
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
-<<<<<<< HEAD
-=======
- 
-	def springSecurityService 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
->>>>>>> 9e2f893c0432933a9c75c48207fdfdc77dc35b56
+
 
 	def springSecurityService
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -59,19 +54,14 @@ class UserController {
 	}
 
 	def profile(Long id) {
-<<<<<<< HEAD
-		def userInstance = User.findById(id);
-		def userInstanceFriends = userInstance.getFriends()
-		def nameProfilePicture = userInstance.urlProfilePicture()
-		[userInstance: userInstance, userInstanceFriends: userInstanceFriends, nameProfilePicture: nameProfilePicture]
-=======
+
 		def userInstance = springSecurityService.currentUser
 		def userProfile = User.findById(id);
 		def userProfileFriends = userProfile.getFriends()	
 		def userProfileTravels = userProfile.getTravels()	
 		def nameProfilePicture = userProfile.urlProfilePicture()
 		[userInstance: userInstance, userProfile: userProfile, userProfileFriends: userProfileFriends, userProfileTravels: userProfileTravels, nameProfilePicture: nameProfilePicture]
->>>>>>> 9e2f893c0432933a9c75c48207fdfdc77dc35b56
+ 
 	}
 
 	def signin() {
