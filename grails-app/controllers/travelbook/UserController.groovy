@@ -14,7 +14,8 @@ class UserController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        [userInstanceList: User.list(params), userInstanceTotal: User.count()]
+		def userInstance = springSecurityService.currentUser
+        [usersList: User.list(params), usersTotal: User.count(), userInstance: userInstance]
     }
 
     def create() {
