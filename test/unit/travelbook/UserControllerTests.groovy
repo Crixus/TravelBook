@@ -241,13 +241,6 @@ class UserControllerTests {
 		assert User.get(user.id) == null
 		assert response.redirectedUrl == '/user/list'
 	}
-<<<<<<< HEAD
-	
-	
-	
-=======
 
-
->>>>>>> 61f11e6a87c73ad2116363f8ca2f56c6e6d810a1
 
 }
