@@ -2,14 +2,10 @@ package travelbook
 
 import java.util.Date;
 
-import org.junit.*
-import grails.test.mixin.*
 import grails.plugins.springsecurity.SpringSecurityService
 @TestFor(UserController)
 @Mock([User , SpringSecurityService])
 class UserControllerTests {
-
-
 
 	def populateValidParams(params) {
 		assert params != null

@@ -8,7 +8,6 @@ import travelbook.User
 class BootStrap {
 
 	def init = { servletContext ->
-		// rajout des donn�es pour les test concernant les utilisateurs
 		User toto = new User(
 				username: "toto@gmail.com",
 				email: "toto@gmail.com",

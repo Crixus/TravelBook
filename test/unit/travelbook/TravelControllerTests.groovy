@@ -1,7 +1,6 @@
 package travelbook
 
-@TestFor(TravelController)
-@Mock(Travel)
+@Mock([Travel])
 class TravelControllerTests {
 
 	User user = new User(
@@ -28,7 +27,7 @@ class TravelControllerTests {
 	}
 
 	void testList() {
-
+		params.id = 4
 		def model = controller.list()
 
 		assert model.travelInstanceList.size() == 0
