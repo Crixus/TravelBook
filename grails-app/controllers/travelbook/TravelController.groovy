@@ -14,7 +14,7 @@ class TravelController {
 
     def list() {
 		if(!springSecurityService){
-			redirect(uri: "/error")
+			redirect(uri: "/error") 
 			return
 		}
 		User userInstance = springSecurityService.getCurrentUser()
