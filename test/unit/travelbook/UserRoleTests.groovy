@@ -15,7 +15,7 @@ public class UserRoleTests {
 	@Test
 	public void testEqualsObject() {
 		//Role r = new Role()
-		//r.setAuthority("Admin")		
+		//r.setAuthority("Admin")
 	}
 
 	@Test

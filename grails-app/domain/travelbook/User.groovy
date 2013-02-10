@@ -5,25 +5,23 @@ import grails.plugins.springsecurity.SpringSecurityService
 
 class User {
 
-	transient springSecurityService 
+	transient springSecurityService
 
 	String username
 	String password
-	
+
 	String lastName
 	String firstName
 	String email
 	String gender
 	Date dateOfBirth
-	
+
 	boolean enabled = true
 	boolean accountExpired = false
 	boolean accountLocked = false
 	boolean passwordExpired = false
-	
+
 	static hasMany = [friends : User, travels: Travel]
-	
-	
 
 	static constraints = {
 		username blank: false, unique: true
@@ -33,7 +31,7 @@ class User {
 		accountExpired display: false
 		accountLocked display: false
 		passwordExpired display: false
-		
+
 		lastName (size: 3..16, blank: false, nullable: false)
 		firstName (size: 3..16, blank: false, nullable: false)
 		email (email: true, blank: false, unique: true, nullable: false)
@@ -61,32 +59,34 @@ class User {
 				encodePassword()
 			}
 		}
-		
+
 	}
 
 	def urlProfilePicture(){
 		def reader = new File("web-app/images/picts/p_"+this.getId()+".jpg")
 		return (!reader.exists()) ? "p_default.jpg" : "p_"+this.getId()+".jpg";
 	}
-	
+
 	def getAge(){
-		
-		 Calendar curr = Calendar.getInstance();
-		 Calendar birth = Calendar.getInstance();
-		 birth.setTime(this.dateOfBirth);
-		 int yeardiff = curr.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
-		 curr.add(Calendar.YEAR,-yeardiff);
-		 if(birth.after(curr)){
-			 yeardiff = yeardiff - 1;
-		 }
-		 return yeardiff;
+		Calendar curr = Calendar.getInstance();
+		Calendar birth = Calendar.getInstance();
+		birth.setTime(this.dateOfBirth);
+		int yeardiff = curr.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
+		curr.add(Calendar.YEAR,-yeardiff);
+		if(birth.after(curr)){
+			yeardiff = yeardiff - 1;
+		}
+		return yeardiff;
 	}
-	
+
 	protected void encodePassword() {
 		if(springSecurityService ){
 			password = springSecurityService.encodePassword(password)
 		}
-		 
-		
 	}
+	
+	def isFriendWith(User friend) {
+		return friends.contains(friend)
+	}
+	
 }

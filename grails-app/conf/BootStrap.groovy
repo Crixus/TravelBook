@@ -26,7 +26,7 @@ class BootStrap {
 		User jeremy = new User(
 				username: "jeremy.curny@gmail.com",
 				email: "jeremy.curny@gmail.com",
-				dateOfBirth: new Date()-220,
+				dateOfBirth: Date.parse("yyyy-M-d", "1988-07-17"),
 				lastName:"Curny",
 				firstName: "Jeremy",
 				gender: "M",
@@ -51,12 +51,11 @@ class BootStrap {
 			log.error "${anna.errors}"
 		}
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		
 		User adama = new User(
 				username: "adama@gmail.com",
 				email: "adama@gmail.com",
-				dateOfBirth: simpleDateFormat.parse("22/06/2006"),
+				dateOfBirth: Date.parse("yyyy-M-d", "1990-04-23"),
+
 				lastName:"Bocoum",
 				firstName: "Adama",
 				gender: "M",
@@ -67,46 +66,18 @@ class BootStrap {
 			log.error "${adama.errors}"
 		}
 
-		User Matt = new User(
-				username: "Matt@gmail.com",
-				email: "Matt@gmail.com",
+		User Marouan = new User(
+				username: "marouan@gmail.com",
+				email: "marouan@gmail.com",
 				dateOfBirth: new Date()-240 ,
-				lastName:"Doe",
-				firstName: "Matt",
+				lastName:"Chamss",
+				firstName: "Marouan",
 				gender: "M",
 				password: "pass");
 
-		if (!Matt.save()){
+		if (!Marouan.save()){
 			log.error "Could not save user!!"
-			log.error "${Matt.errors}"
-		}
-
-		User Julie = new User(
-				username: "Julie@gmail.com",
-				email: "Julie@gmail.com",
-				dateOfBirth: new Date()-240 ,
-				lastName:"Faure",
-				firstName: "Julie",
-				gender: "F",
-				password: "pass");
-
-		if (!Julie.save()){
-			log.error "Could not save user!!"
-			log.error "${Julie.errors}"
-		}
-
-		User Camille = new User(
-				username: "Camille@gmail.com",
-				email: "Camille@gmail.com",
-				dateOfBirth: new Date()-240 ,
-				lastName:"Le Drean",
-				firstName: "Camille",
-				gender: "F",
-				password: "pass");
-
-		if (!Camille.save()){
-			log.error "Could not save user!!"
-			log.error "${Camille.errors}"
+			log.error "${Marouan.errors}"
 		}
 
 		adama.addToFriends(anna)

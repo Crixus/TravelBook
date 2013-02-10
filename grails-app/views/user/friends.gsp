@@ -21,8 +21,7 @@
 					</td>
 					<td>
 						<g:form controller="user">
-							<g:hiddenField name="emailFriend" value="${friendInstance.email}" />
-							<g:actionSubmit value="Delete" action="deleteFriend" onclick="return confirm('Delete ${friendInstance.firstName} ?');"/>
+							<g:actionSubmit value="Delete friend" action="deleteFriend" id="${friendInstance.id}" onclick="return confirm('Delete ${friendInstance.firstName} ?');"/>
 						</g:form>
 					</td>
 				</tr>

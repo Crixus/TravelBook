@@ -20,12 +20,17 @@
 						<g:link controller="user" action="profile" id="${memberInstance?.id}">
 							${memberInstance.firstName} ${memberInstance.lastName} 
 						</g:link>
-					</td>
+					</td>					
 					<td>
 						<g:form controller="user">
 							<g:hiddenField name="emailUser" value="${memberInstance.email}" />
-							<g:actionSubmit value="Add as friend" action="addFriend" id="${memberInstance.id}" />
-							<g:actionSubmit value="Delete friend" action="deleteFriend" id="${memberInstance.id}" />
+							<g:if test="${!userInstance.isFriendWith(memberInstance) && !userInstance.equals(memberInstance) }">
+								<g:actionSubmit value="Add as friend" action="addFriend" id="${memberInstance.id}" />
+							</g:if>
+							<g:if test="${userInstance.isFriendWith(memberInstance) && !userInstance.equals(memberInstance)}">
+								<g:actionSubmit value="Delete friend" action="deleteFriend" id="${memberInstance.id}" />
+							</g:if>
+							
 						</g:form>
 					</td>
 				</tr>
