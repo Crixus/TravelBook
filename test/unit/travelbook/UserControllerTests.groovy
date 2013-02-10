@@ -142,6 +142,36 @@ class UserControllerTests {
 		assert model.userInstance == user
 	}
 
+	
+//	void testDeleteFriend() {
+//		controller.deleteFriend()
+//		
+//		assert flash.message != null
+//		assert response.redirectedUrl == '/user/friends'
+// 
+//		response.reset()
+//
+//		populateValidParams(params)
+//		def user = new User(params)
+//		
+//		populateValidParamsForsign(params)
+//		def userfriend = new User(params)
+//		
+//		user.addToFriends(userfriend)
+//		assert user.save() != null
+//		assert User.count() == 1
+//
+//		
+//		params.id = user.id
+//
+//		controller.deleteFriend()
+// 
+//
+//		assert User.count() == 0
+//		assert User.get(user.id) == null
+//		assert response.redirectedUrl == '/user/list'
+//	}
+	
 	void testUpdate() {
 		controller.update()
 
@@ -213,6 +243,7 @@ class UserControllerTests {
 		assert User.get(user.id) == null
 		assert response.redirectedUrl == '/user/list'
 	}
+	
 	
 	
 
