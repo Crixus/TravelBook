@@ -73,24 +73,6 @@ class TravelControllerTests {
 		assert Travel.count() == 1
 	}
 
-	void testShow() {
-		controller.show()
-
-		assert flash.message != null
-		assert response.redirectedUrl == '/travel/list'
-
-		populateValidParams(params)
-		def travel = new Travel(params)
-
-		assert travel.save() != null
-
-		params.id = travel.id
-
-		def model = controller.show()
-
-		assert model.travelInstance == travel
-	}
-
 	void testEdit() {
 		controller.edit()
 
