@@ -3,6 +3,7 @@ package travelbook
 import grails.plugins.springsecurity.SpringSecurityService
 import grails.test.mixin.*
 @TestFor(UserController)
+
 @Mock([User , SpringSecurityService])
 class UserControllerTests {
 
@@ -16,7 +17,6 @@ class UserControllerTests {
 		params["email"]= "cedric@gmail.com"
 		params["gender"] = "M"
 		params["dateOfBirth"] = new Date("1988/07/17")
-
 	}
 
 	def populateValidParamsForsign(params) {
@@ -44,29 +44,6 @@ class UserControllerTests {
 		assert model.usersList.size() == 0
 		assert model.usersTotal == 0
 		assert model.userInstance == null
-	}
-
-	void testFriends(){
-//		def model = controller.friends()
-//		
-//		assert model.userInstanceFriends == null
-//		assert model.userInstance == null
-	}
-	
-	void testRedirectLogged(){
-//		def model = controller.redirectLogged()
-//		
-//		assert response.redirectedUrl == ''
-	}
-	
-	void testProfile(){
-//		def model = controller.profile(4)
-//		
-//		print model.userProfile
-//		print model.userProfileFriends
-//		print model.userProfileTravels
-//		print model.nameProfilePicture 
-//		print model.userInstance 
 	}
 	
 	void testCreate() {
@@ -102,7 +79,6 @@ class UserControllerTests {
 
 		// Test invalid
 		controller.save()
-
 
 		assert model.userInstance != null
 		assert view == '/user/create'
@@ -145,7 +121,6 @@ class UserControllerTests {
 
 	void testEdit() {
 		controller.edit()
-
 
 		assert flash.message != null
 		assert response.redirectedUrl == '/user/list'
@@ -195,10 +170,8 @@ class UserControllerTests {
 	void testUpdate() {
 		controller.update()
 
-
 		assert flash.message != null
 		assert response.redirectedUrl == '/user/list'
-
 
 		response.reset()
 
@@ -257,7 +230,6 @@ class UserControllerTests {
 		params.id = user.id
 
 		controller.delete()
-
 
 		assert User.count() == 0
 		assert User.get(user.id) == null
