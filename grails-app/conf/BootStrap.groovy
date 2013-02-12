@@ -16,7 +16,7 @@ class BootStrap {
 				gender: "M",
 				password: "pass");
 
-		if (!toto.save()){
+		if (!toto.save(flush: true)){
 			log.error "Could not save user!!"
 			log.error "${toto.errors}"
 		}
@@ -30,7 +30,7 @@ class BootStrap {
 				gender: "M",
 				password: "pass");
 
-		if (!jeremy.save()){
+		if (!jeremy.save(flush: true)){
 			log.error "Could not save user!!"
 			log.error "${jeremy.errors}"
 		}
@@ -44,7 +44,7 @@ class BootStrap {
 				gender: "F",
 				password: "pass");
 
-		if (!anna.save()){
+		if (!anna.save(flush: true)){
 			log.error "Could not save user!!"
 			log.error "${anna.errors}"
 		}
@@ -59,7 +59,7 @@ class BootStrap {
 				gender: "M",
 				password: "pass");
 
-		if (!adama.save()){
+		if (!adama.save(flush: true)){
 			log.error "Could not save user!!"
 			log.error "${adama.errors}"
 		}
@@ -73,7 +73,7 @@ class BootStrap {
 				gender: "M",
 				password: "pass");
 
-		if (!Marouan.save()){
+		if (!Marouan.save(flush: true)){
 			log.error "Could not save user!!"
 			log.error "${Marouan.errors}"
 		}
@@ -88,7 +88,7 @@ class BootStrap {
 				gender: "M",
 				password: "pass");
 
-		if (!Frank.save()){
+		if (!Frank.save(flush: true)){
 			log.error "Could not save user!!"
 			log.error "${Marouan.errors}"
 		}
@@ -102,7 +102,7 @@ class BootStrap {
 				gender: "M",
 				password: "pass");
 
-		if (!Ludovic.save()){
+		if (!Ludovic.save(flush: true)){
 			log.error "Could not save user!!"
 			log.error "${Marouan.errors}"
 		}
@@ -142,10 +142,10 @@ class BootStrap {
 		Travel Nantes = new Travel (destination: 'Nantes', dateDebut:new Date()-86, dateFin: new Date(), member:anna)
 		Travel Lyon = new Travel (destination: 'Lyon', dateDebut:new Date()-86, dateFin: new Date(), member:jeremy)
 
-		Paris.save();
-		Toulouse.save();
-		Nantes.save();
-		Lyon.save();
+		Paris.save(flush: true);
+		Toulouse.save(flush: true);
+		Nantes.save(flush: true);
+		Lyon.save(flush: true);
 
 	}
 
