@@ -1,0 +1,7 @@
+open|/TravelBook
+clickAndWait|link=Logout
+type|j_username|adama@gmail.com
+type|j_password|pass
+clickAndWait|//input[@value='Login']
+clickAndWait|link=Last travels
+clickAndWait|link=Paris
