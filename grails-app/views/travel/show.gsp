@@ -29,7 +29,9 @@
 					     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					</g:if>
 					<td>
-						<img class="travel_picture" src="${resource(dir: 'images/picts/', file: picture)}" />
+						<a rel="travel" class="fancybox" href="${resource(dir: 'images/picts/', file: picture)}">
+							<img class="travel_picture" src="${resource(dir: 'images/picts/', file: picture)}" />
+						</a>
 					</td>
 					<g:if test="${(i == 3) || i == (listOfPictures.size() - 1)}">
 					     </tr>

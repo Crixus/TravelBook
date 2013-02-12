@@ -1,5 +1,5 @@
 package travelbook;
-import grails.plugins.springsecurity.SpringSecurityService
+import grails.test.mixin.*
 
 @TestFor(User)
 class UserTests {
