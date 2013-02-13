@@ -22,6 +22,21 @@ div#banniere h1 {
 	color: white;
 }
 
+div#nav {
+	margin: 10px auto 5px auto;
+	text-align: center;
+}
+
+div#nav ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+div#nav ul li{
+	display: inline-block;
+	padding: 0px 5px;
+}
+
 h2 {
 	width: 100%;
 	font-size: 20px;
@@ -140,11 +155,15 @@ input.signin {
 	border-color: #3b6e22 #3b6e22 #2c5115;
 }
 
-table.users, table.friends, table.travels {
+table.users, table.friends, table.travels, table.profile_table, table.profile_travels {
 	margin: 0px auto 10px auto;
 }
 
-table.users td, table.friends td{
+table.profile_table {
+	text-align: left;
+}
+
+table.users td, table.friends td, table.profile_table td, table.profile_travels td{
 	padding: 0px 10px;
 }
 
@@ -158,7 +177,7 @@ table.travels img.travel {
 	max-height: 150px;
 }
 
-img.travel_picture {
+img.travel_picture, table.profile_table img.profile {
 	max-width: 200px;
 	max-height: 200px;
 }
