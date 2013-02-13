@@ -1,7 +1,7 @@
 package travelbook
 
-import java.util.Date
-import grails.plugins.springsecurity.SpringSecurityService
+//import java.util.Date
+//import grails.plugins.springsecurity.SpringSecurityService
 
 class User {
 
@@ -88,5 +88,9 @@ class User {
 	def isFriendWith(User friend) {
 		return friends.contains(friend)
 	}
-
+	
+	boolean equals(user) {
+		       if(user?.is(this))return true
+		    if(!(user instanceof User)) return false
+	}
 }

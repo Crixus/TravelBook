@@ -1,6 +1,6 @@
 package travelbook
 
-import grails.test.mixin.*
+//import grails.test.mixin.*
 import grails.test.mixin.support.*
 import spock.lang.*
 //import org.junit.*

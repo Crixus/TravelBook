@@ -22,6 +22,10 @@ class UserRole implements Serializable {
 		if (role) builder.append(role.id)
 		builder.toHashCode()
 	}
+	@Override
+	String toString() {
+		
+	}
 
 	static UserRole get(long userId, long roleId) {
 		find 'from UserRole where user.id=:userId and role.id=:roleId',

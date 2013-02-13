@@ -1,6 +1,6 @@
 package travelbook
 
-import grails.plugins.springsecurity.SpringSecurityService
+//import grails.plugins.springsecurity.SpringSecurityService
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {

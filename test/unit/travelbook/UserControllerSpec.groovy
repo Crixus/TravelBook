@@ -1,13 +1,10 @@
 package travelbook
 
-//import static org.junit.Assert.*
-
-//import grails.test.mixin.*
-import grails.test.mixin.TestFor
-//import grails.test.mixin.support.*
-//import org.junit.*
-import spock.lang.Specification
 import static grails.test.MockUtils.*
+//import grails.test.mixin.TestFor
+
+import spock.lang.Specification
+
 
 
 /**
