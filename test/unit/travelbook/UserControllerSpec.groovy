@@ -1,7 +1,7 @@
 package travelbook
 
 import static grails.test.MockUtils.*
-//import grails.test.mixin.TestFor
+import grails.test.mixin.TestFor
 
 import spock.lang.Specification
 

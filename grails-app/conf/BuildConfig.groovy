@@ -17,10 +17,6 @@ grails.project.dependency.resolution = {
     checksums true // Whether to verify checksums on resolve
 	pom true
 	
-	codenarc.properties ={ 
-		GrailsPublicControllerMethod.enabled = false
-		EmptyIfStatement.priority = 1
-		 }
     repositories {
         inherits true // Whether to inherit repository definitions from plugins
 
@@ -70,5 +66,5 @@ grails.project.dependency.resolution = {
         compile ':cache:1.0.0'
     }
 	
-	codenarc.ruleSetFiles = "MyCodeNarcRuleSet.xml"
+	
 }
